@@ -1,57 +1,65 @@
 import requests
-import schedule
+from apscheduler.schedulers.blocking import BlockingScheduler
+from datetime import datetime
 import time
 
-# Function to fetch arriving trains at Tampere station using GraphQL
+# Function to fetch arriving trains to Tampere
 def fetch_arriving_trains():
-    url = 'https://rata.digitraffic.fi/api/v2/graphql/graphiql'
+    url = 'https://rata.digitraffic.fi/api/v2/graphql/graphql'
     query = """
-        query {
-            trainsByDepartureDate(
-                departureDate: "2024-03-26", 
-                where: {
-                    timeTableRows: {
-                        contains: {
-                            station: {
-                                shortCode: { equals: "TPE" }
-                            }
-                        }
-                    }
+        {
+          trainsByDepartureDate(
+            departureDate: "%s",
+            where: {
+              timeTableRows: {
+                contains: {
+                  station: {
+                    shortCode: { equals: "TPE" }
+                  }
                 }
-            ) {
-                trainNumber
-                departureDate
-                timeTableRows {
-                    station {
-                        name
-                    }
-                    scheduledTime
-                }
+              }
             }
+          ) {
+            trainNumber
+            departureDate
+            timeTableRows {
+              scheduledTime
+              station {
+                name
+              }
+            }
+          }
         }
-    """
+    """ % datetime.today().strftime('%Y-%m-%d')
+
     try:
         response = requests.post(url, json={'query': query})
+        response.raise_for_status()
         data = response.json()
-        process_arriving_trains(data)
+        arriving_trains = []
+        for train in data['data']['trainsByDepartureDate']:
+            for row in train['timeTableRows']:
+                if row['station']['name'] == 'Tampere':
+                    arriving_trains.append({
+                        'trainNumber': train['trainNumber'],
+                        'departureDate': train['departureDate'],
+                        'scheduledArrivalTime': row['scheduledTime']
+                    })
+        print("Arriving trains to Tampere:")
+        for train in arriving_trains:
+            print(train)
     except requests.exceptions.RequestException as e:
         print("Error fetching arriving trains:", e)
 
-# Function to process arriving trains data and track train journeys
-def process_arriving_trains(data):
-    arriving_trains = data['data']['trainsByDepartureDate']
-    print("Arriving trains at Tampere station:")
-    for train in arriving_trains:
-        train_number = train['trainNumber']
-        departure_date = train['departureDate']
-        scheduled_arrival = train['timeTableRows'][-1]['scheduledTime']
-        print(f"Train {train_number} scheduled to arrive at Tampere station on {departure_date} at {scheduled_arrival}")
-        # Add logic here to track train journeys and update application data
 
-# Schedule periodic fetching of arriving trains
-schedule.every(5).minutes.do(fetch_arriving_trains)
+# Create scheduler
+scheduler = BlockingScheduler()
 
-# Main loop to run the scheduler
-while True:
-    schedule.run_pending()
-    time.sleep(1)
+# Schedule to fetch arriving trains every 5 minutes
+scheduler.add_job(fetch_arriving_trains, 'interval', minutes=5)
+
+# Start the scheduler
+try:
+    scheduler.start()
+except KeyboardInterrupt:
+    pass
