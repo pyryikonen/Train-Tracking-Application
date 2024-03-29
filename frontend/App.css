@@ -1,0 +1,33 @@
+.App {
+  font-family: Arial, sans-serif;
+}
+
+.train-list-container {
+  text-align: center;
+}
+
+.train {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+
+  font-size: large;
+}
+
+.train-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.train li {
+  padding: 10px;
+  background-color: #f0f0f0;
+  border-top: 2px solid rgb(207, 245, 192);
+  border-bottom: 2px solid rgb(207, 245, 192); /* Change the color to black */
+}
+
+.dropdown {
+  margin: 10px;
+}
