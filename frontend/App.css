@@ -12,7 +12,6 @@
   justify-content: center;
   align-items: center;
   padding: 10px;
-
   font-size: large;
 }
 
@@ -25,9 +24,13 @@
   padding: 10px;
   background-color: #f0f0f0;
   border-top: 2px solid rgb(207, 245, 192);
-  border-bottom: 2px solid rgb(207, 245, 192); /* Change the color to black */
+  border-bottom: 2px solid rgb(207, 245, 192);
 }
 
 .dropdown {
   margin: 10px;
+}
+
+.content {
+  text-align: center;
 }
