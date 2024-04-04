@@ -20,47 +20,56 @@ def get_live_trains(station_shortcode):
     # Return the formatted data as JSON response
     return jsonify({'arriving': formatted_arriving_trains, 'departing': formatted_departing_trains})
 
-# Function to format live train information response
 def format_live_trains_response(station_shortcode, live_trains, direction):
     formatted_trains = []
 
     for train in live_trains:
-        formatted_train = {
-            'Station': station_shortcode,
-            'Direction': direction,
-            'Train Number': train['trainNumber'],
-            'Departure Date': train['departureDate'],
-            'Operator': train['operatorShortCode'],
-            'Train Type': train['trainType'],
-            'Time Table Rows': [],
-            'Actual Time': None,  # Add actualTime field
-            'Difference in Minutes': None  # Add differenceInMinutes field
-        }
+        target_station = [row for row in train['timeTableRows'] if row.get('stationShortCode') == station_shortcode]
+        if target_station:  # Check if target_station list is not empty
+            target_station = target_station[0]  # Take the first matching station
 
-        # Get the first and last stations
-        first_station = train['timeTableRows'][0]
-        last_station = train['timeTableRows'][-1]
+            # Get the first and last stations
+            first_station = train['timeTableRows'][0]
+            last_station = train['timeTableRows'][-1]
 
-        formatted_row_first = {
-            'Station': first_station['stationShortCode'],
-            'Scheduled Time': first_station['scheduledTime']
-        }
+            # Create a list of stations containing only the first, target, and last stations
+            time_table_rows = [
+                {
+                    'Station': first_station['stationShortCode'],
+                    'Scheduled Time': first_station['scheduledTime']
+                },
+                {
+                    'Station': target_station['stationShortCode'],
+                    'Scheduled Time': target_station['scheduledTime']
+                },
+                {
+                    'Station': last_station['stationShortCode'],
+                    'Scheduled Time': last_station['scheduledTime']
+                }
+            ]
 
-        formatted_row_last = {
-            'Station': last_station['stationShortCode'],
-            'Scheduled Time': last_station['scheduledTime']
-        }
+            # Sort the time table rows by scheduled time
+            sorted_time_table_rows = sorted(time_table_rows, key=lambda x: x['Scheduled Time'])
 
-        formatted_train['Time Table Rows'].append(formatted_row_first)
-        formatted_train['Time Table Rows'].append(formatted_row_last)
+            formatted_train = {
+                'Station': station_shortcode,
+                'Direction': direction,
+                'Train Number': train['trainNumber'],
+                'Departure Date': train['departureDate'],
+                'Operator': train['operatorShortCode'],
+                'Train Type': train['trainType'],
+                'Time Table Rows': sorted_time_table_rows,
+                'Actual Time': target_station.get('actualTime'),
+                'Difference in Minutes': target_station.get('differenceInMinutes')
+            }
 
-        if last_station.get('actualTime') is not None:
-            formatted_train['Actual Time'] = last_station['actualTime']
-            formatted_train['Difference in Minutes'] = last_station['differenceInMinutes']
-
-        formatted_trains.append(formatted_train)
+            formatted_trains.append(formatted_train)
 
     return formatted_trains
+
+
+
+
 
 # Run Flask app
 if __name__ == '__main__':
