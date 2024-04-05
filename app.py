@@ -68,9 +68,6 @@ def format_live_trains_response(station_shortcode, live_trains, direction):
     return formatted_trains
 
 
-
-
-
 # Run Flask app
 if __name__ == '__main__':
     app.run(debug=True, port=5001)  # You may want to set debug=False for production
