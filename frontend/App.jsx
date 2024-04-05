@@ -7,7 +7,8 @@ import './App.css';
 
 const App = () => {
   const [selectedStation, setSelectedStation] = useState('');
-  const [trains, setTrains] = useState([]);
+  const [arrivingTrains, setArriving] = useState([]);
+  const [departingTrains, setDeparting] = useState([]);
   const [currentTime, setCurrentTime] = useState('');
 
   useEffect(() => {
@@ -17,8 +18,9 @@ const App = () => {
           const response = await axios.get(
             `http://localhost:5001/live-trains/${selectedStation}`
           );
-          console.log(response.data);
-          setTrains(response.data.arriving.slice(0, 5));
+          setArriving(response.data.arriving);
+          setDeparting(response.data.departing);
+          console.log('Fetched train data:', response.data);
         } catch (error) {
           console.error('Error fetching train data:', error);
         }
@@ -49,7 +51,8 @@ const App = () => {
       />
       {selectedStation && (
         <TrainList
-          trains={trains}
+          arrivingTrains={arrivingTrains}
+          departingTrains={departingTrains}
           selectedStation={selectedStation}
           timeZone='Europe/Helsinki'
         />
