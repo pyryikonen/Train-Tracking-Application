@@ -5,7 +5,7 @@ import time
 
 # Function to fetch live train information for a given station
 def fetch_live_trains(station_shortcode, minutes_before_departure=15, minutes_after_departure=15,
-                      minutes_before_arrival=15, minutes_after_arrival=15, arrived_trains=5, departing_trains=5):
+                      minutes_before_arrival=15, minutes_after_arrival=15, arrived_trains=200, departing_trains=200):
     url_arriving = f"https://rata.digitraffic.fi/api/v1/live-trains/station/{station_shortcode}?arriving_trains={arrived_trains}&minutes_before_arrival={minutes_before_arrival}&minutes_after_arrival={minutes_after_arrival}"
     url_departing = f"https://rata.digitraffic.fi/api/v1/live-trains/station/{station_shortcode}?departing_trains={departing_trains}&minutes_before_departure={minutes_before_departure}&minutes_after_departure={minutes_after_departure}"
 
