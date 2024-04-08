@@ -39,15 +39,18 @@ def format_live_trains_response(station_shortcode, live_trains, direction):
             time_table_rows = [
                 {
                     'Station': first_station['stationShortCode'],
-                    'Scheduled Time': first_station['scheduledTime']
+                    'Scheduled Time': first_station['scheduledTime'],
+                    'Track Number': first_station.get('commercialTrack'),
                 },
                 {
                     'Station': target_station['stationShortCode'],
-                    'Scheduled Time': target_station['scheduledTime']
+                    'Scheduled Time': target_station['scheduledTime'],
+                    'Track Number': target_station.get('commercialTrack'),
                 },
                 {
                     'Station': last_station['stationShortCode'],
-                    'Scheduled Time': last_station['scheduledTime']
+                    'Scheduled Time': last_station['scheduledTime'],
+                    'Track Number': last_station.get('commercialTrack'),
                 }
             ]
 
@@ -61,7 +64,6 @@ def format_live_trains_response(station_shortcode, live_trains, direction):
                 'Departure Date': train['departureDate'],
                 'Operator': train['operatorShortCode'],
                 'Train Type': train['trainType'],
-                'Track Number': train.get('commercialTrack'),
                 'Time Table Rows': sorted_time_table_rows,
                 'Actual Time': target_station.get('actualTime'),
                 'Difference in Minutes': target_station.get('differenceInMinutes')
@@ -70,6 +72,9 @@ def format_live_trains_response(station_shortcode, live_trains, direction):
             formatted_trains.append(formatted_train)
 
     return formatted_trains
+
+
+
 
 
 # Run Flask app
