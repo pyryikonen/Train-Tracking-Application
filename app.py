@@ -61,7 +61,7 @@ def format_live_trains_response(station_shortcode, live_trains, direction):
                 'Departure Date': train['departureDate'],
                 'Operator': train['operatorShortCode'],
                 'Train Type': train['trainType'],
-                'Track Number': train['commercialTrack'],
+                'Track Number': train.get('commercialTrack'),
                 'Time Table Rows': sorted_time_table_rows,
                 'Actual Time': target_station.get('actualTime'),
                 'Difference in Minutes': target_station.get('differenceInMinutes')
