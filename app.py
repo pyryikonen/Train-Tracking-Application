@@ -7,6 +7,7 @@ import live_trains_fetcher  # Import the fetch_live_trains function from live_tr
 app = Flask(__name__)
 CORS(app)  # Enable Cross-Origin Resource Sharing
 
+
 # Route to get live trains for a specific station
 @app.route('/live-trains/<station_shortcode>')
 def get_live_trains(station_shortcode):
@@ -15,10 +16,12 @@ def get_live_trains(station_shortcode):
 
     # Format the live train data
     formatted_arriving_trains = format_live_trains_response(station_shortcode, live_trains_data['arriving'], 'arriving')
-    formatted_departing_trains = format_live_trains_response(station_shortcode, live_trains_data['departing'], 'departing')
+    formatted_departing_trains = format_live_trains_response(station_shortcode, live_trains_data['departing'],
+                                                             'departing')
 
     # Return the formatted data as JSON response
     return jsonify({'arriving': formatted_arriving_trains, 'departing': formatted_departing_trains})
+
 
 def format_live_trains_response(station_shortcode, live_trains, direction):
     formatted_trains = []
@@ -48,7 +51,7 @@ def format_live_trains_response(station_shortcode, live_trains, direction):
                 }
             ]
 
-            # Sort the time table rows by scheduled time
+            # Sort the timetable rows by scheduled time
             sorted_time_table_rows = sorted(time_table_rows, key=lambda x: x['Scheduled Time'])
 
             formatted_train = {
@@ -58,6 +61,7 @@ def format_live_trains_response(station_shortcode, live_trains, direction):
                 'Departure Date': train['departureDate'],
                 'Operator': train['operatorShortCode'],
                 'Train Type': train['trainType'],
+                'Track Number': train['commercialTrack'],
                 'Time Table Rows': sorted_time_table_rows,
                 'Actual Time': target_station.get('actualTime'),
                 'Difference in Minutes': target_station.get('differenceInMinutes')
