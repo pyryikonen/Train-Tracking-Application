@@ -1,4 +1,5 @@
 import React from 'react';
+import passengerTrafficStations from './passenger_traffic_stations.json';
 
 const formatTime = (timeString) => {
   const date = new Date(timeString);
@@ -20,15 +21,25 @@ const TrainList = ({
   const currentTime = new Date();
   currentTime.setHours(currentTime.getHours() + 3);
 
+  const getDestinationStation = (train) => {
+    const timeTableRows = train['Time Table Rows'];
+    return timeTableRows[timeTableRows.length - 1].Station;
+  };
+
+  const getStationName = (shortCode) => {
+    const station = passengerTrafficStations.find(
+      (station) => station.stationShortCode === shortCode
+    );
+    return station ? station.stationName : '';
+  };
+
   const filteredArrivingTrains = arrivingTrains
-    .filter(
-      (train) =>
-        new Date(
-          train['Time Table Rows'].find(
-            (row) => row.Station === selectedStation
-          )['Scheduled Time']
-        ) > currentTime
-    )
+    .filter((train) => {
+      const row = train['Time Table Rows'].find(
+        (row) => row.Station === selectedStation
+      );
+      return row && new Date(row['Scheduled Time']) > currentTime;
+    })
     .sort(
       (a, b) =>
         new Date(
@@ -45,14 +56,12 @@ const TrainList = ({
     .slice(0, 5);
 
   const filteredDepartingTrains = departingTrains
-    .filter(
-      (train) =>
-        new Date(
-          train['Time Table Rows'].find(
-            (row) => row.Station === selectedStation
-          )['Scheduled Time']
-        ) > currentTime
-    )
+    .filter((train) => {
+      const row = train['Time Table Rows'].find(
+        (row) => row.Station === selectedStation
+      );
+      return row && new Date(row['Scheduled Time']) > currentTime;
+    })
     .sort(
       (a, b) =>
         new Date(
@@ -77,6 +86,8 @@ const TrainList = ({
             const timeTableRow = train['Time Table Rows'].find(
               (row) => row.Station === selectedStation
             );
+            const destinationStation = getDestinationStation(train);
+            const destinationStationName = getStationName(destinationStation);
             if (timeTableRow) {
               const scheduledTime = formatTime(
                 timeTableRow['Scheduled Time'],
@@ -86,7 +97,7 @@ const TrainList = ({
                 <div className='train' key={train.TrainNumber}>
                   <li>
                     {train['Train Type']} {train['Train Number']} - Saapuu{' '}
-                    {scheduledTime}{' '}
+                    {scheduledTime} - Määränpää: {destinationStationName}
                   </li>
                 </div>
               );
@@ -95,7 +106,8 @@ const TrainList = ({
                 <div className='train' key={train.TrainNumber}>
                   <li>
                     {train['Train Type']} {train['Train Number']} -
-                    Saapumisaikaa ei saatavilla
+                    Saapumisaikaa ei saatavilla - Määränpää:{' '}
+                    {destinationStation}
                   </li>
                 </div>
               );
@@ -110,6 +122,8 @@ const TrainList = ({
             const timeTableRow = train['Time Table Rows'].find(
               (row) => row.Station === selectedStation
             );
+            const destinationStation = getDestinationStation(train);
+            const destinationStationName = getStationName(destinationStation);
             if (timeTableRow) {
               const scheduledTime = formatTime(
                 timeTableRow['Scheduled Time'],
@@ -119,7 +133,7 @@ const TrainList = ({
                 <div className='train' key={train.TrainNumber}>
                   <li>
                     {train['Train Type']} {train['Train Number']} - Lähtee{' '}
-                    {scheduledTime}
+                    {scheduledTime} - Määränpää: {destinationStationName}
                   </li>
                 </div>
               );
@@ -128,7 +142,7 @@ const TrainList = ({
                 <div className='train' key={train.TrainNumber}>
                   <li>
                     {train['Train Type']} {train['Train Number']} - Lähtöaikaa
-                    ei saatavilla
+                    ei saatavilla - Määränpää: {destinationStation}
                   </li>
                 </div>
               );
