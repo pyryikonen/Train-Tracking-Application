@@ -10,10 +10,12 @@ const App = () => {
   const [arrivingTrains, setArriving] = useState([]);
   const [departingTrains, setDeparting] = useState([]);
   const [currentTime, setCurrentTime] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     const fetchTrains = async () => {
       if (selectedStation) {
+        setIsLoading(true);
         try {
           const response = await axios.get(
             `http://localhost:5001/live-trains/${selectedStation}`
@@ -24,6 +26,7 @@ const App = () => {
         } catch (error) {
           console.error('Error fetching train data:', error);
         }
+        setIsLoading(false);
       }
     };
 
@@ -49,13 +52,17 @@ const App = () => {
         stations={passengerTrafficStations}
         onSelectStation={setSelectedStation}
       />
-      {selectedStation && (
-        <TrainList
-          arrivingTrains={arrivingTrains}
-          departingTrains={departingTrains}
-          selectedStation={selectedStation}
-          timeZone='Europe/Helsinki'
-        />
+      {isLoading ? (
+        <p>Loading...</p>
+      ) : (
+        selectedStation && (
+          <TrainList
+            arrivingTrains={arrivingTrains}
+            departingTrains={departingTrains}
+            selectedStation={selectedStation}
+            timeZone='Europe/Helsinki'
+          />
+        )
       )}
     </div>
   );
