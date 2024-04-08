@@ -8,6 +8,7 @@ This web application fetches live train information for specific stations and pr
 - Displays a list of arriving and departing trains for the selected station, including train type, train number, scheduled time, and destination.
 - Updates the displayed information periodically to keep it current.
 - Supports multiple stations for users to choose from.
+- Generates live announcements using Text-to-Speech (TTS) to inform the user about trains arriving at the selected station.
 
 ## Usage
 
