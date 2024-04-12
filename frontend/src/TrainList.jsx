@@ -93,11 +93,13 @@ const TrainList = ({
                 timeTableRow['Scheduled Time'],
                 timeZone
               );
+              const trackNumber = timeTableRow['Track Number'];
               return (
                 <div className='train' key={train.TrainNumber}>
                   <li>
                     {train['Train Type']} {train['Train Number']} - Saapuu{' '}
-                    {scheduledTime} - Määränpää: {destinationStationName}
+                    {scheduledTime} - Raide: {trackNumber} - Määränpää:{' '}
+                    {destinationStationName}
                   </li>
                 </div>
               );
@@ -129,11 +131,13 @@ const TrainList = ({
                 timeTableRow['Scheduled Time'],
                 timeZone
               );
+              const trackNumber = timeTableRow['Track Number'];
               return (
                 <div className='train' key={train.TrainNumber}>
                   <li>
                     {train['Train Type']} {train['Train Number']} - Lähtee{' '}
-                    {scheduledTime} - Määränpää: {destinationStationName}
+                    {scheduledTime} - Raide:{trackNumber} - Määränpää:{' '}
+                    {destinationStationName}
                   </li>
                 </div>
               );

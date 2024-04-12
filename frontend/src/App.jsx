@@ -18,7 +18,7 @@ const App = () => {
         setIsLoading(true);
         try {
           const response = await axios.get(
-            `http://localhost:5001/live-trains/${selectedStation}`
+            `https://junakuulutus.onrender.com/live-trains/${selectedStation}`
           );
           setArriving(response.data.arriving);
           setDeparting(response.data.departing);

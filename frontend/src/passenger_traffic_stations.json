@@ -1,0 +1,1493 @@
+[
+    {
+        "passengerTraffic": true,
+        "longitude": 25.101494,
+        "latitude": 60.456863,
+        "stationShortCode": "AIN",
+        "stationName": "Ainola"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 23.600437,
+        "latitude": 62.617769,
+        "stationShortCode": "ALV",
+        "stationName": "Alavus"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 24.956191,
+        "latitude": 60.30435,
+        "stationShortCode": "AVP",
+        "stationName": "Aviapolis"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 23.488607,
+        "latitude": 59.990199,
+        "stationShortCode": "DRA",
+        "stationName": "Dragsvik"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 24.191479,
+        "latitude": 62.540677,
+        "stationShortCode": "EPZ",
+        "stationName": "Eläinpuisto-Zoo"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 30.141691,
+        "latitude": 62.806375,
+        "stationShortCode": "ENO",
+        "stationName": "Eno"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 24.655992,
+        "latitude": 60.205067,
+        "stationShortCode": "EPO",
+        "stationName": "Espoo"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 25.33434,
+        "latitude": 63.754515,
+        "stationShortCode": "HPJ",
+        "stationName": "Haapajärvi"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 24.455067,
+        "latitude": 62.246476,
+        "stationShortCode": "HPK",
+        "stationName": "Haapamäki"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 25.13382,
+        "latitude": 60.496261,
+        "stationShortCode": "HAA",
+        "stationName": "Haarajoki"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 25.554663,
+        "latitude": 60.408207,
+        "stationShortCode": "HSI",
+        "stationName": "Haksi"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 26.478116,
+        "latitude": 62.302807,
+        "stationShortCode": "HKS",
+        "stationName": "Hankasalmi"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 22.968291,
+        "latitude": 59.826865,
+        "stationShortCode": "HNK",
+        "stationName": "Hanko"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 22.988361,
+        "latitude": 59.830141,
+        "stationShortCode": "HKP",
+        "stationName": "Hanko-Pohjoinen"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 22.133261,
+        "latitude": 61.309689,
+        "stationShortCode": "HVA",
+        "stationName": "Harjavalta"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 28.643419,
+        "latitude": 62.382542,
+        "stationShortCode": "HNV",
+        "stationName": "Heinävesi"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 24.941249,
+        "latitude": 60.172097,
+        "stationShortCode": "HKI",
+        "stationName": "Helsinki"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 25.494389,
+        "latitude": 60.799132,
+        "stationShortCode": "HNN",
+        "stationName": "Henna"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 25.475624,
+        "latitude": 60.896944,
+        "stationShortCode": "HR",
+        "stationName": "Herrala"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 25.049104,
+        "latitude": 60.303081,
+        "stationShortCode": "HKH",
+        "stationName": "Hiekkaharju"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 24.919201,
+        "latitude": 60.752588,
+        "stationShortCode": "HK",
+        "stationName": "Hikiä"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 26.789163,
+        "latitude": 61.193088,
+        "stationShortCode": "HLS",
+        "stationName": "Hillosensalmi"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 25.477951,
+        "latitude": 60.399764,
+        "stationShortCode": "HH",
+        "stationName": "Hinthaara"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 23.362536,
+        "latitude": 60.919507,
+        "stationShortCode": "HP",
+        "stationName": "Humppila"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 24.893523,
+        "latitude": 60.21835,
+        "stationShortCode": "HPL",
+        "stationName": "Huopalahti"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 24.857481,
+        "latitude": 60.63126,
+        "stationShortCode": "HY",
+        "stationName": "Hyvinkää"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 24.478851,
+        "latitude": 61.002368,
+        "stationShortCode": "HL",
+        "stationName": "Hämeenlinna"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 22.876631,
+        "latitude": 63.234321,
+        "stationShortCode": "HM",
+        "stationName": "Härmä"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 29.44413,
+        "latitude": 63.454874,
+        "stationShortCode": "HÖL",
+        "stationName": "Höljäkkä"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 27.201109,
+        "latitude": 63.560099,
+        "stationShortCode": "ILM",
+        "stationName": "Iisalmi"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 24.140789,
+        "latitude": 61.090616,
+        "stationShortCode": "ITA",
+        "stationName": "Iittala"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 24.920636,
+        "latitude": 60.208134,
+        "stationShortCode": "ILA",
+        "stationName": "Ilmala"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 28.776017,
+        "latitude": 61.195914,
+        "stationShortCode": "IMR",
+        "stationName": "Imatra"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 26.839178,
+        "latitude": 60.696674,
+        "stationShortCode": "IKR",
+        "stationName": "Inkeroinen"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 23.93585,
+        "latitude": 60.061511,
+        "stationShortCode": "IKO",
+        "stationName": "Inkoo"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 22.394797,
+        "latitude": 62.951072,
+        "stationShortCode": "IKY",
+        "stationName": "Isokyrö"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 29.777033,
+        "latitude": 62.599536,
+        "stationShortCode": "JNS",
+        "stationName": "Joensuu"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 24.970682,
+        "latitude": 60.552798,
+        "stationShortCode": "JK",
+        "stationName": "Jokela"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 24.512776,
+        "latitude": 60.137885,
+        "stationShortCode": "JRS",
+        "stationName": "Jorvas"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 28.488252,
+        "latitude": 61.120291,
+        "stationShortCode": "JTS",
+        "stationName": "Joutseno"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 24.365046,
+        "latitude": 61.796788,
+        "stationShortCode": "JJ",
+        "stationName": "Juupajoki"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 25.754984,
+        "latitude": 62.241455,
+        "stationShortCode": "JY",
+        "stationName": "Jyväskylä"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 25.173294,
+        "latitude": 61.865627,
+        "stationShortCode": "JÄS",
+        "stationName": "Jämsä"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 25.274659,
+        "latitude": 60.867325,
+        "stationShortCode": "JR",
+        "stationName": "Järvelä"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 25.090796,
+        "latitude": 60.473684,
+        "stationShortCode": "JP",
+        "stationName": "Järvenpää"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 27.738374,
+        "latitude": 64.219716,
+        "stationShortCode": "KAJ",
+        "stationName": "Kajaani"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 24.877004,
+        "latitude": 60.239562,
+        "stationShortCode": "KAN",
+        "stationName": "Kannelmäki"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 23.915361,
+        "latitude": 63.898425,
+        "stationShortCode": "KNS",
+        "stationName": "Kannus"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 23.66126,
+        "latitude": 60.068724,
+        "stationShortCode": "KR",
+        "stationName": "Karjaa"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 23.049129,
+        "latitude": 61.443314,
+        "stationShortCode": "KRU",
+        "stationName": "Karkku"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 23.0353,
+        "latitude": 63.099643,
+        "stationShortCode": "KHA",
+        "stationName": "Kauhava"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 24.600354,
+        "latitude": 60.189456,
+        "stationShortCode": "KLH",
+        "stationName": "Kauklahti"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 24.730884,
+        "latitude": 60.211939,
+        "stationShortCode": "KNI",
+        "stationName": "Kauniainen"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 26.329366,
+        "latitude": 60.885347,
+        "stationShortCode": "KA",
+        "stationName": "Kausala"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 24.574339,
+        "latitude": 65.736749,
+        "stationShortCode": "KEM",
+        "stationName": "Kemi"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 27.403715,
+        "latitude": 66.724273,
+        "stationShortCode": "KJÄ",
+        "stationName": "Kemijärvi"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 25.514546,
+        "latitude": 64.912904,
+        "stationShortCode": "KML",
+        "stationName": "Kempele"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 24.75564,
+        "latitude": 60.216573,
+        "stationShortCode": "KEA",
+        "stationName": "Kera"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 25.106028,
+        "latitude": 60.404297,
+        "stationShortCode": "KE",
+        "stationName": "Kerava"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 29.114053,
+        "latitude": 61.861412,
+        "stationShortCode": "KIÄ",
+        "stationName": "Kerimäki"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 29.802865,
+        "latitude": 61.887467,
+        "stationShortCode": "KTI",
+        "stationName": "Kesälahti"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 24.707325,
+        "latitude": 62.255309,
+        "stationShortCode": "KEU",
+        "stationName": "Keuruu"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 25.613204,
+        "latitude": 60.406719,
+        "stationShortCode": "KIA",
+        "stationName": "Kiiala"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 24.782393,
+        "latitude": 60.217939,
+        "stationShortCode": "KIL",
+        "stationName": "Kilo"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 24.438814,
+        "latitude": 60.119648,
+        "stationShortCode": "KKN",
+        "stationName": "Kirkkonummi"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 30.049014,
+        "latitude": 62.142774,
+        "stationShortCode": "KIT",
+        "stationName": "Kitee"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 26.611334,
+        "latitude": 63.640907,
+        "stationShortCode": "KRV",
+        "stationName": "Kiuruvesi"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 24.846938,
+        "latitude": 60.314607,
+        "stationShortCode": "KTÖ",
+        "stationName": "Kivistö"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 29.287006,
+        "latitude": 63.514758,
+        "stationShortCode": "KOH",
+        "stationName": "Kohtavaara"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 24.701273,
+        "latitude": 60.207144,
+        "stationShortCode": "KVH",
+        "stationName": "Koivuhovi"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 25.059797,
+        "latitude": 60.323284,
+        "stationShortCode": "KVY",
+        "stationName": "Koivukylä"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 22.30335,
+        "latitude": 61.254199,
+        "stationShortCode": "KKI",
+        "stationName": "Kokemäki"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 23.131096,
+        "latitude": 63.834429,
+        "stationShortCode": "KOK",
+        "stationName": "Kokkola"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 23.836254,
+        "latitude": 67.348706,
+        "stationShortCode": "KLI",
+        "stationName": "Kolari"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 24.507444,
+        "latitude": 62.128049,
+        "stationShortCode": "KLO",
+        "stationName": "Kolho"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 28.114694,
+        "latitude": 64.338219,
+        "stationShortCode": "KON",
+        "stationName": "Kontiomäki"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 26.60131,
+        "latitude": 60.847067,
+        "stationShortCode": "KRA",
+        "stationName": "Koria"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 25.078507,
+        "latitude": 60.35129,
+        "stationShortCode": "KRS",
+        "stationName": "Korso"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 26.928611,
+        "latitude": 60.464388,
+        "stationShortCode": "KTA",
+        "stationName": "Kotka"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 26.934952,
+        "latitude": 60.466492,
+        "stationShortCode": "KTS",
+        "stationName": "Kotkan satama"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 26.704588,
+        "latitude": 60.865613,
+        "stationShortCode": "KV",
+        "stationName": "Kouvola"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 27.679581,
+        "latitude": 62.897218,
+        "stationShortCode": "KUO",
+        "stationName": "Kuopio"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 22.297114,
+        "latitude": 60.450274,
+        "stationShortCode": "KUT",
+        "stationName": "Kupittaa"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 29.75243,
+        "latitude": 63.361403,
+        "stationShortCode": "KYN",
+        "stationName": "Kylänlahti"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 26.90714,
+        "latitude": 60.539229,
+        "stationShortCode": "KY",
+        "stationName": "Kymi"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 26.895812,
+        "latitude": 60.508258,
+        "stationShortCode": "KLN",
+        "stationName": "Kyminlinna"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 24.946034,
+        "latitude": 60.22017,
+        "stationShortCode": "KÄP",
+        "stationName": "Käpylä"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 25.657397,
+        "latitude": 60.97647,
+        "stationShortCode": "LH",
+        "stationName": "Lahti"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 22.003444,
+        "latitude": 62.990138,
+        "stationShortCode": "LAI",
+        "stationName": "Laihia"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 27.393552,
+        "latitude": 63.360666,
+        "stationShortCode": "LNA",
+        "stationName": "Lapinlahti"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 28.195304,
+        "latitude": 61.047973,
+        "stationShortCode": "LR",
+        "stationName": "Lappeenranta"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 25.17423,
+        "latitude": 60.848954,
+        "stationShortCode": "LAA",
+        "stationName": "Lappila"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 23.236919,
+        "latitude": 59.904082,
+        "stationShortCode": "LPO",
+        "stationName": "Lappohja"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 23.015112,
+        "latitude": 62.971338,
+        "stationShortCode": "LPA",
+        "stationName": "Lapua"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 25.039419,
+        "latitude": 60.322641,
+        "stationShortCode": "LNÄ",
+        "stationName": "Leinelä"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 23.755094,
+        "latitude": 61.314233,
+        "stationShortCode": "LPÄ",
+        "stationName": "Lempäälä"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 24.968343,
+        "latitude": 60.315732,
+        "stationShortCode": "LEN",
+        "stationName": "Lento"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 24.813541,
+        "latitude": 60.21948,
+        "stationShortCode": "LPV",
+        "stationName": "Leppävaara"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 30.016394,
+        "latitude": 63.318195,
+        "stationShortCode": "LIS",
+        "stationName": "Lieksa"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 26.195893,
+        "latitude": 62.259872,
+        "stationShortCode": "LVT",
+        "stationName": "Lievestuore"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 23.060408,
+        "latitude": 60.847378,
+        "stationShortCode": "LM",
+        "stationName": "Loimaa"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 24.853299,
+        "latitude": 60.270798,
+        "stationShortCode": "LOH",
+        "stationName": "Louhela"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 29.322269,
+        "latitude": 61.800548,
+        "stationShortCode": "LUS",
+        "stationName": "Lusto"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 25.011468,
+        "latitude": 60.25166,
+        "stationShortCode": "ML",
+        "stationName": "Malmi"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 24.861283,
+        "latitude": 60.249316,
+        "stationShortCode": "MLO",
+        "stationName": "Malminkartano"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 24.852604,
+        "latitude": 60.27808,
+        "stationShortCode": "MRL",
+        "stationName": "Martinlaakso"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 24.539106,
+        "latitude": 60.158661,
+        "stationShortCode": "MAS",
+        "stationName": "Masala"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 27.277969,
+        "latitude": 61.687818,
+        "stationShortCode": "MI",
+        "stationName": "Mikkeli"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 26.687235,
+        "latitude": 66.617923,
+        "stationShortCode": "MIS",
+        "stationName": "Misi"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 25.075141,
+        "latitude": 60.821177,
+        "stationShortCode": "MLA",
+        "stationName": "Mommila"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 37.655278,
+        "latitude": 55.777111,
+        "stationShortCode": "MVA",
+        "stationName": "Moskova_(Leningradski)"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 25.991997,
+        "latitude": 64.805398,
+        "stationShortCode": "MH",
+        "stationName": "Muhos"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 25.37511,
+        "latitude": 66.370875,
+        "stationShortCode": "MUL",
+        "stationName": "Muurola"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 26.78669,
+        "latitude": 60.771013,
+        "stationShortCode": "MKI",
+        "stationName": "Myllykoski"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 24.280965,
+        "latitude": 62.524753,
+        "stationShortCode": "MY",
+        "stationName": "Myllymäki"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 24.854751,
+        "latitude": 60.261327,
+        "stationShortCode": "MYR",
+        "stationName": "Myyrmäki"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 24.842976,
+        "latitude": 60.22131,
+        "stationShortCode": "MÄK",
+        "stationName": "Mäkkylä"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 25.307475,
+        "latitude": 60.647258,
+        "stationShortCode": "MLÄ",
+        "stationName": "Mäntsälä"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 26.881746,
+        "latitude": 61.421104,
+        "stationShortCode": "MR",
+        "stationName": "Mäntyharju"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 25.935467,
+        "latitude": 60.935567,
+        "stationShortCode": "NSL",
+        "stationName": "Nastola"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 25.26654,
+        "latitude": 60.38237,
+        "stationShortCode": "NLÄ",
+        "stationName": "Nikkilä"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 24.960768,
+        "latitude": 63.936389,
+        "stationShortCode": "NVL",
+        "stationName": "Nivala"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 23.49917,
+        "latitude": 61.481059,
+        "stationShortCode": "NOA",
+        "stationName": "Nokia"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 29.137234,
+        "latitude": 63.541078,
+        "stationShortCode": "NRM",
+        "stationName": "Nurmes"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 25.021316,
+        "latitude": 60.789806,
+        "stationShortCode": "OI",
+        "stationName": "Oitti"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 24.368047,
+        "latitude": 61.650095,
+        "stationShortCode": "OV",
+        "stationName": "Orivesi"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 24.369838,
+        "latitude": 61.673906,
+        "stationShortCode": "OVK",
+        "stationName": "Orivesi keskusta"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 24.82098,
+        "latitude": 64.269509,
+        "stationShortCode": "OU",
+        "stationName": "Oulainen"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 25.486121,
+        "latitude": 65.012409,
+        "stationShortCode": "OL",
+        "stationName": "Oulu"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 24.967676,
+        "latitude": 60.229,
+        "stationShortCode": "OLK",
+        "stationName": "Oulunkylä"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 26.919345,
+        "latitude": 60.475938,
+        "stationShortCode": "PTI",
+        "stationName": "Paimenportti"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 27.82218,
+        "latitude": 64.40061,
+        "stationShortCode": "PTO",
+        "stationName": "Paltamo"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 29.502884,
+        "latitude": 61.55855,
+        "stationShortCode": "PAR",
+        "stationName": "Parikkala"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 23.078439,
+        "latitude": 62.051967,
+        "stationShortCode": "PKO",
+        "stationName": "Parkano"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 24.366497,
+        "latitude": 61.049922,
+        "stationShortCode": "PRL",
+        "stationName": "Parola"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 24.933521,
+        "latitude": 60.198689,
+        "stationShortCode": "PSL",
+        "stationName": "Pasila"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 24.933169,
+        "latitude": 60.208303,
+        "stationShortCode": "PAU",
+        "stationName": "Pasila autojuna-"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 23.993374,
+        "latitude": 66.78466,
+        "stationShortCode": "PEL",
+        "stationName": "Pello"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 25.189337,
+        "latitude": 62.256974,
+        "stationShortCode": "PVI",
+        "stationName": "Petäjävesi"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 27.16753,
+        "latitude": 62.301253,
+        "stationShortCode": "PM",
+        "stationName": "Pieksämäki"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 30.356308,
+        "latitude": 59.957131,
+        "stationShortCode": "PTR",
+        "stationName": "Pietari_(Finljandski)"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 30.443925,
+        "latitude": 59.9311424,
+        "stationShortCode": "PTL",
+        "stationName": "Pietari_(Ladozhski)"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 24.395608,
+        "latitude": 62.346234,
+        "stationShortCode": "PH",
+        "stationName": "Pihlajavesi"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 24.859649,
+        "latitude": 60.223412,
+        "stationShortCode": "PJM",
+        "stationName": "Pitäjänmäki"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 24.883319,
+        "latitude": 60.230156,
+        "stationShortCode": "POH",
+        "stationName": "Pohjois-Haaga"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 21.786607,
+        "latitude": 61.477212,
+        "stationShortCode": "PRI",
+        "stationName": "Pori"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 25.648462,
+        "latitude": 60.396602,
+        "stationShortCode": "PRV",
+        "stationName": "Porvoo"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 25.036683,
+        "latitude": 60.276313,
+        "stationShortCode": "PLA",
+        "stationName": "Puistola"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 24.993288,
+        "latitude": 60.242216,
+        "stationShortCode": "PMK",
+        "stationName": "Pukinmäki"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 29.382354,
+        "latitude": 61.761151,
+        "stationShortCode": "PUN",
+        "stationName": "Punkaharju"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 25.050225,
+        "latitude": 60.500329,
+        "stationShortCode": "PUR",
+        "stationName": "Purola"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 25.982615,
+        "latitude": 63.682935,
+        "stationShortCode": "PHÄ",
+        "stationName": "Pyhäsalmi"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 22.790363,
+        "latitude": 63.595382,
+        "stationShortCode": "PNÄ",
+        "stationName": "Pännäinen"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 28.924534,
+        "latitude": 61.862291,
+        "stationShortCode": "PKY",
+        "stationName": "Pääskylahti"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 25.068666,
+        "latitude": 60.332871,
+        "stationShortCode": "RKL",
+        "stationName": "Rekola"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 29.294294,
+        "latitude": 61.803308,
+        "stationShortCode": "REE",
+        "stationName": "Retretti"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 24.781241,
+        "latitude": 60.736078,
+        "stationShortCode": "RI",
+        "stationName": "Riihimäki"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 25.705329,
+        "latitude": 66.497675,
+        "stationShortCode": "ROI",
+        "stationName": "Rovaniemi"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 26.886487,
+        "latitude": 63.602052,
+        "stationShortCode": "RNN",
+        "stationName": "Runni"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 25.0982,
+        "latitude": 64.660373,
+        "stationShortCode": "RKI",
+        "stationName": "Ruukki"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 24.758186,
+        "latitude": 60.818048,
+        "stationShortCode": "RY",
+        "stationName": "Ryttylä"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 23.121448,
+        "latitude": 60.384777,
+        "stationShortCode": "SLO",
+        "stationName": "Salo"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 23.121052,
+        "latitude": 59.875008,
+        "stationShortCode": "STA",
+        "stationName": "Santala"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 25.065568,
+        "latitude": 60.487305,
+        "stationShortCode": "SAU",
+        "stationName": "Saunakallio"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 25.097803,
+        "latitude": 60.381296,
+        "stationShortCode": "SAV",
+        "stationName": "Savio"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 28.888266,
+        "latitude": 61.8689,
+        "stationShortCode": "SL",
+        "stationName": "Savonlinna"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 22.844217,
+        "latitude": 62.792016,
+        "stationShortCode": "SK",
+        "stationName": "Seinäjoki"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 27.666561,
+        "latitude": 63.074953,
+        "stationShortCode": "SIJ",
+        "stationName": "Siilinjärvi"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 29.371696,
+        "latitude": 61.424787,
+        "stationShortCode": "SPL",
+        "stationName": "Simpele"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 24.221671,
+        "latitude": 60.140648,
+        "stationShortCode": "STI",
+        "stationName": "Siuntio"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 23.312403,
+        "latitude": 59.926668,
+        "stationShortCode": "SGY",
+        "stationName": "Skogby"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 27.422313,
+        "latitude": 63.864618,
+        "stationShortCode": "SKV",
+        "stationName": "Sukeva"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 27.124495,
+        "latitude": 62.623707,
+        "stationShortCode": "SNJ",
+        "stationName": "Suonenjoki"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 23.443501,
+        "latitude": 59.979553,
+        "stationShortCode": "TMS",
+        "stationName": "Tammisaari"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 23.773454,
+        "latitude": 61.498236,
+        "stationShortCode": "TPE",
+        "stationName": "Tampere"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 25.030033,
+        "latitude": 60.2639,
+        "stationShortCode": "TNA",
+        "stationName": "Tapanila"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 26.954279,
+        "latitude": 60.572959,
+        "stationShortCode": "TSL",
+        "stationName": "Tavastila"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 22.171462,
+        "latitude": 63.000773,
+        "stationShortCode": "TK",
+        "stationName": "Tervajoki"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 24.772291,
+        "latitude": 66.081811,
+        "stationShortCode": "TRV",
+        "stationName": "Tervola"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 23.630271,
+        "latitude": 61.503363,
+        "stationShortCode": "TSO",
+        "stationName": "Tesoma"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 25.044055,
+        "latitude": 60.292166,
+        "stationShortCode": "TKL",
+        "stationName": "Tikkurila"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 23.860905,
+        "latitude": 61.170611,
+        "stationShortCode": "TL",
+        "stationName": "Toijala"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 24.472724,
+        "latitude": 60.118558,
+        "stationShortCode": "TOL",
+        "stationName": "Tolsa"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 24.18508,
+        "latitude": 65.850823,
+        "stationShortCode": "TRI",
+        "stationName": "Tornio-Itäinen"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 24.681767,
+        "latitude": 60.20605,
+        "stationShortCode": "TRL",
+        "stationName": "Tuomarila"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 24.63865,
+        "latitude": 60.918387,
+        "stationShortCode": "TU",
+        "stationName": "Turenki"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 22.252945,
+        "latitude": 60.453985,
+        "stationShortCode": "TKU",
+        "stationName": "Turku"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 22.226894,
+        "latitude": 60.434245,
+        "stationShortCode": "TUS",
+        "stationName": "Turku satama"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 23.722323,
+        "latitude": 62.605349,
+        "stationShortCode": "TUU",
+        "stationName": "Tuuri"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 35.8928,
+        "latitude": 56.8352,
+        "stationShortCode": "TVE",
+        "stationName": "Tver"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 30.241497,
+        "latitude": 62.912482,
+        "stationShortCode": "UIM",
+        "stationName": "Uimaharju"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 26.413565,
+        "latitude": 64.758926,
+        "stationShortCode": "UTJ",
+        "stationName": "Utajärvi"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 25.993966,
+        "latitude": 60.927722,
+        "stationShortCode": "UKÄ",
+        "stationName": "Uusikylä"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 26.842702,
+        "latitude": 64.558015,
+        "stationShortCode": "VAA",
+        "stationName": "Vaala"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 21.621824,
+        "latitude": 63.097786,
+        "stationShortCode": "VS",
+        "stationName": "Vaasa"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 28.303201,
+        "latitude": 60.863835,
+        "stationShortCode": "VNA",
+        "stationName": "Vainikkala"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 24.87583,
+        "latitude": 60.222028,
+        "stationShortCode": "VMO",
+        "stationName": "Valimo"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 22.887664,
+        "latitude": 61.349519,
+        "stationShortCode": "VMA",
+        "stationName": "Vammala"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 24.847966,
+        "latitude": 60.286119,
+        "stationShortCode": "VKS",
+        "stationName": "Vantaankoski"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 27.873415,
+        "latitude": 62.312389,
+        "stationShortCode": "VAR",
+        "stationName": "Varkaus"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 24.843716,
+        "latitude": 60.295054,
+        "stationShortCode": "VEH",
+        "stationName": "Vehkala"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 24.993624,
+        "latitude": 64.48451,
+        "stationShortCode": "VTI",
+        "stationName": "Vihanti"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 29.029282,
+        "latitude": 62.380739,
+        "stationShortCode": "VIH",
+        "stationName": "Vihtari"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 23.770683,
+        "latitude": 61.211787,
+        "stationShortCode": "VIA",
+        "stationName": "Viiala"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 29.237166,
+        "latitude": 62.641687,
+        "stationShortCode": "VNJ",
+        "stationName": "Viinijärvi"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 28.751409,
+        "latitude": 60.716073,
+        "stationShortCode": "VYB",
+        "stationName": "Viipuri"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 25.833724,
+        "latitude": 60.946379,
+        "stationShortCode": "VLH",
+        "stationName": "Villähde"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 24.506956,
+        "latitude": 62.025888,
+        "stationShortCode": "VLP",
+        "stationName": "Vilppula"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 29.99331,
+        "latitude": 63.152636,
+        "stationShortCode": "VSL",
+        "stationName": "Vuonislahti"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 22.532729,
+        "latitude": 62.917801,
+        "stationShortCode": "YST",
+        "stationName": "Ylistaro"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 23.682508,
+        "latitude": 66.324438,
+        "stationShortCode": "YTR",
+        "stationName": "Ylitornio"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 24.540593,
+        "latitude": 64.071898,
+        "stationShortCode": "YV",
+        "stationName": "Ylivieska"
+    },
+    {
+        "passengerTraffic": true,
+        "longitude": 24.064036,
+        "latitude": 62.553265,
+        "stationShortCode": "ÄHT",
+        "stationName": "Ähtäri"
+    }
+]
