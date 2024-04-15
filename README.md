@@ -2,6 +2,10 @@
 
 This web application fetches live train information for specific stations and presents it in a user-friendly format. It provides real-time data on arriving and departing trains, including scheduled times, train types, and destinations.
 
+backend: https://junakuulutus.onrender.com/live-trains/TPE
+
+frontend: https://trains-7w3b.onrender.com/
+
 ## Features
 
 - Allows users to select a station from a dropdown menu to view live train information.
