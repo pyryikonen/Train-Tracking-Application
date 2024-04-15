@@ -1,7 +1,7 @@
 import json
 
-input_file_path = 'stations.json'
-output_file_path = 'passenger_traffic_stations.json'
+input_file_path = '../stations.json'
+output_file_path = '../passenger_traffic_stations_2.json'
 
 def remove_asema(station_name):
     return station_name.replace("asema", "").strip()
@@ -13,9 +13,6 @@ def filter_passenger_traffic(input_file_path, output_file_path):
         for item in data:
             if isinstance(item, dict) and item.get('passengerTraffic') == True:
                 filtered_item = {
-                    "passengerTraffic": item.get("passengerTraffic"),
-                    "longitude": item.get("longitude"),
-                    "latitude": item.get("latitude"),
                     "stationShortCode": item.get("stationShortCode"),
                     "stationName": remove_asema(item.get("stationName"))
                 }
