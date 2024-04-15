@@ -1,4 +1,4 @@
-from flask import Flask, jsonify
+from flask import Flask, jsonify, send_file
 from flask_cors import CORS
 
 from utils.live_trains_utils import get_train_data
@@ -48,7 +48,8 @@ def get_single_announcement(departure_date, train_number, departure_time):
     # Construct broadcast using the matched timetable row
     announcement_path = broadcast_utils.construct_broadcast(train_data)
 
-    return jsonify({'announcement_path': announcement_path})
+    # Send the .wav file as a response
+    return send_file(announcement_path, mimetype="audio/wav", as_attachment=True)
 
 # Remove the scheduled_time and actual_time formatting from broadcast_utils
 # The announcement_path construction in broadcast_utils should directly use the scheduledTime and actualTime from train_data
