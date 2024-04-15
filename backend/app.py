@@ -1,7 +1,7 @@
 from flask import Flask, jsonify
 from flask_cors import CORS
 
-from backend.utils.live_trains_utils import get_train_data
+from utils.live_trains_utils import get_train_data
 from utils import live_trains_utils, broadcast_utils
 from datetime import datetime
 
