@@ -14,7 +14,7 @@ CORS(app)  # Enable Cross-Origin Resource Sharing
 def get_live_trains(station_shortcode):
     live_trains_data = live_trains_utils.fetch_live_trains(station_shortcode)
     formatted_arriving_trains = format_live_trains_response(station_shortcode, live_trains_data['arriving'], 'arriving')
-    formatted_departing_trains = format_live_trains_response(station_shortcode, live_trains_data['departing'])
+    formatted_departing_trains = format_live_trains_response(station_shortcode, live_trains_data['departing'], "departing")
     # Return the formatted data as JSON response
     return jsonify({'arriving': formatted_arriving_trains, 'departing': formatted_departing_trains})
 
