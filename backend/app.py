@@ -18,24 +18,21 @@ def get_live_trains(station_shortcode):
     # Return the formatted data as JSON response
     return jsonify({'arriving': formatted_arriving_trains, 'departing': formatted_departing_trains})
 
-@app.route('/single-announcement/<departure_date>/<int:train_number>/<departure_time>', methods=['GET'])
-def get_single_announcement(departure_date, train_number, departure_time):
-    print(
-        f"Received request for single announcement with departure_date: {departure_date}, train_number: {train_number}, departure_time: {departure_time}")
+@app.route('/single-announcement/<date_object>/<int:train_number>', methods=['GET'])
+def get_single_announcement(date_object, train_number):
+    print(f"Received request for single announcement with dateandtime: {date_object}, train_number: {train_number}")
 
-    # Validate departure_date format
+    # Validate dateandtime format
     try:
-        datetime.strptime(departure_date, '%Y-%m-%d')
-    except ValueError:
-        print("Invalid departure_date format.")
-        return jsonify({'error': 'Invalid departure_date format. Use YYYY-MM-DD.'}), 400
+        # Parse dateandtime to datetime object
+        dt_obj = datetime.strptime(date_object, '%Y-%m-%dT%H:%M:%S.%fZ')
 
-    # Validate departure_time format
-    try:
-        datetime.strptime(departure_time, '%H:%M:%S')
+        # Extract date and time from datetime object
+        departure_date = dt_obj.strftime('%Y-%m-%d')
+        departure_time = dt_obj.strftime('%H:%M:%S')
     except ValueError:
-        print("Invalid departure_time format.")
-        return jsonify({'error': 'Invalid departure_time format. Use HH:MM:SS.'}), 400
+        print("Invalid dateandtime format.")
+        return jsonify({'error': 'Invalid dateandtime format. Use YYYY-MM-DDTHH:MM:SS.sssZ.'}), 400
 
     train_data = get_train_data(departure_date, train_number, departure_time)
 
@@ -50,10 +47,6 @@ def get_single_announcement(departure_date, train_number, departure_time):
 
     # Send the .wav file as a response
     return send_file(announcement_path, mimetype="audio/wav", as_attachment=True)
-
-# Remove the scheduled_time and actual_time formatting from broadcast_utils
-# The announcement_path construction in broadcast_utils should directly use the scheduledTime and actualTime from train_data
-
 
 
 def format_live_trains_response(station_shortcode, live_trains, direction):

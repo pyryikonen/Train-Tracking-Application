@@ -38,8 +38,10 @@ def fetch_live_trains(station_shortcode, arriving_trains=200, departing_trains=2
         print(f"Error fetching live trains for station {station_shortcode}: {e}")
         return {'arriving': [], 'departing': []}
 
-
 def get_train_data(departure_date, train_number, departure_time):
+    # Convert departure_time to the expected UTC format
+    departure_time_utc = f"{departure_date}T{departure_time}.000Z"
+
     url = f"https://rata.digitraffic.fi/api/v1/trains/{departure_date}/{train_number}?include_deleted=false&version=0"
 
     try:
@@ -51,11 +53,8 @@ def get_train_data(departure_date, train_number, departure_time):
         if not train_data_list or not isinstance(train_data_list, list):
             print("No train data found or train_data_list is not a list")
             return None
-        print("in live trains utils")
 
-        # Convert departure_time to the expected UTC format
-        departure_time_utc = f"{departure_date}T{departure_time}.000Z"
-
+        print("In live trains utils")
 
         # Search through all train data for a matching timetable row
         for train_data in train_data_list:
@@ -63,15 +62,13 @@ def get_train_data(departure_date, train_number, departure_time):
                                  if row.get('scheduledTime', '').startswith(departure_time_utc)),
                                 None)
 
-            formatted_departure_time = format_time(departure_time_utc)
-
-            print(f"Checking train number {train_number}, scheduled time {formatted_departure_time}...")
+            print(f"Checking train number {train_number}, scheduled time {departure_time_utc}...")
 
             # Log rows for debugging
             print(f"Rows for train number {train_number}:")
             for row in train_data.get('timeTableRows', []):
-                formatted_time = format_time(row.get('scheduledTime', ''))
-                print(f"Scheduled Time: {formatted_time}, Actual Time: {format_time(row.get('actualTime', ''))}")
+                formatted_time = row.get('scheduledTime', '')
+                print(f"Scheduled Time: {formatted_time}, Actual Time: {row.get('actualTime', '')}")
 
             if matching_row:
                 # Construct a new train data dictionary with only the matching timetable row
@@ -84,7 +81,6 @@ def get_train_data(departure_date, train_number, departure_time):
     except requests.exceptions.RequestException as e:
         print(f"Error fetching train data for train number {train_number} on departure date {departure_date}: {e}")
         return None
-
 
 
 # Function to fetch live train information periodically
