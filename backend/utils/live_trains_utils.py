@@ -4,19 +4,6 @@ import json
 import time
 from datetime import datetime
 
-
-def format_time(utc_time):
-    # Convert UTC time to datetime object
-    utc_datetime = datetime.strptime(utc_time, '%Y-%m-%dT%H:%M:%S.%fZ')
-
-    # Convert to local time (assuming Helsinki timezone for Finnish trains)
-    local_tz = pytz.timezone('Europe/Helsinki')
-    local_datetime = utc_datetime.replace(tzinfo=pytz.utc).astimezone(local_tz)
-
-    # Format the local time
-    return local_datetime.strftime('%Y-%m-%d %H:%M:%S')
-
-
 # Function to fetch live train information for a given station
 def fetch_live_trains(station_shortcode, arriving_trains=200, departing_trains=200):
     url_arriving = f"https://rata.digitraffic.fi/api/v1/live-trains/station/{station_shortcode}?arriving_trains={arriving_trains}&include_nonstopping=false&train_categories=Commuter,Long-distance"
@@ -38,7 +25,7 @@ def fetch_live_trains(station_shortcode, arriving_trains=200, departing_trains=2
         print(f"Error fetching live trains for station {station_shortcode}: {e}")
         return {'arriving': [], 'departing': []}
 
-def get_train_data(departure_date, train_number, departure_time):
+def get_train_data(departure_date, train_number, departure_time, station_shortcode):
     # Convert departure_time to the expected UTC format
     departure_time_utc = f"{departure_date}T{departure_time}.000Z"
 
@@ -56,6 +43,8 @@ def get_train_data(departure_date, train_number, departure_time):
 
         print("In live trains utils")
 
+        formatted_trains = []
+
         # Search through all train data for a matching timetable row
         for train_data in train_data_list:
             matching_row = next((row for row in train_data.get('timeTableRows', [])
@@ -64,19 +53,48 @@ def get_train_data(departure_date, train_number, departure_time):
 
             print(f"Checking train number {train_number}, scheduled time {departure_time_utc}...")
 
-            # Log rows for debugging
-            print(f"Rows for train number {train_number}:")
-            for row in train_data.get('timeTableRows', []):
-                formatted_time = row.get('scheduledTime', '')
-                print(f"Scheduled Time: {formatted_time}, Actual Time: {row.get('actualTime', '')}")
-
             if matching_row:
-                # Construct a new train data dictionary with only the matching timetable row
-                train_data['timeTableRows'] = [matching_row]
-                return train_data
+                target_station = next((row for row in train_data.get('timeTableRows', [])
+                                       if row.get('stationShortCode') == station_shortcode),
+                                      None)
 
-        print("No matching timetable row found")
-        return None
+                if target_station:
+                    # Create a list of stations containing only the first, target, and last stations
+                    time_table_rows = [
+                        {
+                            'Station': train_data['timeTableRows'][0]['stationShortCode'],
+                            'Scheduled Time': train_data['timeTableRows'][0]['scheduledTime'],
+                            'Track Number': train_data['timeTableRows'][0].get('commercialTrack'),
+                        },
+                        {
+                            'Station': target_station['stationShortCode'],
+                            'Scheduled Time': target_station['scheduledTime'],
+                            'Track Number': target_station.get('commercialTrack'),
+                        },
+                        {
+                            'Station': train_data['timeTableRows'][-1]['stationShortCode'],
+                            'Scheduled Time': train_data['timeTableRows'][-1]['scheduledTime'],
+                            'Track Number': train_data['timeTableRows'][-1].get('commercialTrack'),
+                        }
+                    ]
+
+                    # Sort the timetable rows by scheduled time
+                    sorted_time_table_rows = sorted(time_table_rows, key=lambda x: x['Scheduled Time'])
+
+                    formatted_train = {
+                        'Station': station_shortcode,
+                        'Train Number': train_data['trainNumber'],
+                        'Departure Date': train_data['departureDate'],
+                        'Operator': train_data['operatorShortCode'],
+                        'Train Type': train_data.get('trainType', 'Unknown'),
+                        'Time Table Rows': sorted_time_table_rows,
+                        'Actual Time': target_station.get('actualTime'),
+                        'Difference in Minutes': target_station.get('differenceInMinutes')
+                    }
+
+                    formatted_trains.append(formatted_train)
+
+        return formatted_trains if formatted_trains else None
 
     except requests.exceptions.RequestException as e:
         print(f"Error fetching train data for train number {train_number} on departure date {departure_date}: {e}")

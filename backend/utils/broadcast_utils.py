@@ -2,8 +2,6 @@ from gtts import gTTS
 from datetime import datetime
 import json
 
-i = 0  # Global variable for announcement file numbering
-
 # Load station data from passenger_traffic_stations.json
 with open('passenger_traffic_stations.json', 'r', encoding='utf-8') as file:
     station_data = json.load(file)
@@ -14,56 +12,58 @@ def get_station_name(station_short_code):
             return station['stationName']
     return 'Unknown'
 
-def construct_broadcast(traindata):
+def construct_broadcast(traindata_list):
     print("Entering broadcast_utils")
 
-    # Debugging: Print traindata to see its content
-    print("Train Data:", traindata)
+    audio_file_paths = []
 
-    train_type = traindata.get('trainType', 'Unknown')
-    print("Train Type:", train_type)
+    for traindata in traindata_list:
+        print("Train Data:", traindata)
 
-    if train_type is None:
-        print("trainType key not found in traindata")
-        return None
+        train_type = traindata.get('Train Type', 'Unknown')
+        print("Train Type:", train_type)
 
-    train_number = traindata.get('trainNumber')
-    time_table_rows = traindata.get('timeTableRows', [])
+        if train_type is None:
+            print("Train Type key not found in traindata")
+            continue
 
-    # Filter time_table_rows to get the first departure and last arriving stations
-    departures = [row for row in time_table_rows if row['type'] == 'DEPARTURE']
-    arrivals = [row for row in time_table_rows if row['type'] == 'ARRIVAL']
+        train_number = traindata.get('Train Number')
+        time_table_rows = traindata.get('Time Table Rows', [])
 
-    if departures:
-        departure_station_code = departures[0].get('stationShortCode', 'Unknown')
-        scheduled_time = departures[0].get('scheduledTime', 'Unknown')
-    else:
-        departure_station_code = 'Unknown'
-        scheduled_time = 'Unknown'
+        # Print timeTableRows for debugging
+        print("TimeTableRows:")
+        for row in time_table_rows:
+            print(row)
 
-    if arrivals:
-        stop_station_code = arrivals[-1].get('stationShortCode', 'Unknown')
-    else:
-        stop_station_code = 'Unknown'
+        # Extract stations and scheduled times
+        first_station = time_table_rows[0]['Station']
+        target_station = time_table_rows[1]['Station']
+        last_station = time_table_rows[2]['Station']
 
-    departure_station = get_station_name(departure_station_code)
-    stop_station = get_station_name(stop_station_code)
+        first_station_name = get_station_name(first_station)
+        target_station_name = get_station_name(target_station)
+        last_station_name = get_station_name(last_station)
 
-    train_number_as_text = str(train_number)
+        scheduled_time_first = time_table_rows[0]['Scheduled Time']
+        scheduled_time_target = time_table_rows[1]['Scheduled Time']
+        scheduled_time_last = time_table_rows[2]['Scheduled Time']
 
-    parsed_time = datetime.strptime(scheduled_time, '%Y-%m-%dT%H:%M:%S.%fZ')
-    time_24hr = f'{parsed_time.hour:02}:{parsed_time.minute:02}'
+        time_24hr_first = f'{datetime.strptime(scheduled_time_first, "%Y-%m-%dT%H:%M:%S.%fZ").hour:02}:{datetime.strptime(scheduled_time_first, "%Y-%m-%dT%H:%M:%S.%fZ").minute:02}'
+        time_24hr_target = f'{datetime.strptime(scheduled_time_target, "%Y-%m-%dT%H:%M:%S.%fZ").hour:02}:{datetime.strptime(scheduled_time_target, "%Y-%m-%dT%H:%M:%S.%fZ").minute:02}'
+        time_24hr_last = f'{datetime.strptime(scheduled_time_last, "%Y-%m-%dT%H:%M:%S.%fZ").hour:02}:{datetime.strptime(scheduled_time_last, "%Y-%m-%dT%H:%M:%S.%fZ").minute:02}'
 
-    my_text = f'({train_type}-{train_number_as_text}) asemalta {departure_station} pysähtyy asemalle {stop_station} kello {time_24hr}.'
+        train_number_as_text = str(train_number)
 
-    print(my_text)
+        my_text = f'({train_type}-{train_number_as_text}) asemalta {first_station_name} pysähtyy asemalle {target_station_name} kello {time_24hr_target}.'
 
-    tts = gTTS(my_text, lang='fi', slow=True)
+        print(my_text)
 
-    global i
-    audio_file_path = f"static/train_announcement{i}.wav"
-    i += 1
+        tts = gTTS(my_text, lang='fi', slow=True)
 
-    tts.save(audio_file_path)
+        audio_file_path = f"static/train_announcement_{train_number}.wav"
 
-    return audio_file_path
+        tts.save(audio_file_path)
+
+        audio_file_paths.append(audio_file_path)
+
+    return audio_file_paths

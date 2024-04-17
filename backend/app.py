@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, send_file
+from flask import Flask, jsonify, send_file, request
 from flask_cors import CORS
 
 from utils.live_trains_utils import get_train_data
@@ -18,9 +18,10 @@ def get_live_trains(station_shortcode):
     # Return the formatted data as JSON response
     return jsonify({'arriving': formatted_arriving_trains, 'departing': formatted_departing_trains})
 
-@app.route('/single-announcement/<date_object>/<int:train_number>', methods=['GET'])
-def get_single_announcement(date_object, train_number):
-    print(f"Received request for single announcement with dateandtime: {date_object}, train_number: {train_number}")
+
+@app.route('/single-announcement/<date_object>/<int:train_number>/<station_shortcode>', methods=['GET'])
+def get_single_announcement(date_object, train_number, station_shortcode):
+    print(f"Received request for single announcement with dateandtime: {date_object}, train_number: {train_number}, station_shortcode: {station_shortcode}")
 
     # Validate dateandtime format
     try:
@@ -34,7 +35,7 @@ def get_single_announcement(date_object, train_number):
         print("Invalid dateandtime format.")
         return jsonify({'error': 'Invalid dateandtime format. Use YYYY-MM-DDTHH:MM:SS.sssZ.'}), 400
 
-    train_data = get_train_data(departure_date, train_number, departure_time)
+    train_data = get_train_data(departure_date, train_number, departure_time, station_shortcode)
 
     if not train_data:
         print("Train not found or timetable row not matching the specified departure_time")
@@ -46,7 +47,8 @@ def get_single_announcement(date_object, train_number):
     announcement_path = broadcast_utils.construct_broadcast(train_data)
 
     # Send the .wav file as a response
-    return send_file(announcement_path, mimetype="audio/wav", as_attachment=True)
+    return send_file(announcement_path, mimetype="audio/wav", as_attachment=True, download_name=f"train_announcement.wav")
+
 
 
 def format_live_trains_response(station_shortcode, live_trains, direction):
