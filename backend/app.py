@@ -27,6 +27,7 @@ def get_single_announcement(date_object, train_number, station_shortcode):
     try:
         # Parse dateandtime to datetime object
         dt_obj = datetime.strptime(date_object, '%Y-%m-%dT%H:%M:%S.%fZ')
+        print(dt_obj)
 
         # Extract date and time from datetime object
         departure_date = dt_obj.strftime('%Y-%m-%d')

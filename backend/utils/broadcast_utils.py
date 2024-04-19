@@ -15,7 +15,6 @@ def get_station_name(station_short_code):
 def construct_broadcast(traindata_list):
     print("Entering broadcast_utils")
 
-    audio_file_paths = []
 
     for traindata in traindata_list:
         print("Train Data:", traindata)
@@ -64,6 +63,4 @@ def construct_broadcast(traindata_list):
 
         tts.save(audio_file_path)
 
-        audio_file_paths.append(audio_file_path)
-
-    return audio_file_paths
+    return audio_file_path
