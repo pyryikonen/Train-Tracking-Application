@@ -1,5 +1,6 @@
 import React from 'react';
 import passengerTrafficStations from './passenger_traffic_stations.json';
+import './App.css';
 
 const formatTime = (timeString) => {
   const date = new Date(timeString);
@@ -24,6 +25,11 @@ const TrainList = ({
   const getDestinationStation = (train) => {
     const timeTableRows = train['Time Table Rows'];
     return timeTableRows[timeTableRows.length - 1].Station;
+  };
+
+  const getFirstStation = (train) => {
+    const timeTableRows = train['Time Table Rows'];
+    return timeTableRows[0].Station;
   };
 
   const getStationName = (shortCode) => {
@@ -79,81 +85,99 @@ const TrainList = ({
 
   return (
     <div className='train-list-container'>
-      <div>
-        <h2>Saapuvat junat:</h2>
-        <ul className='train-list'>
-          {filteredArrivingTrains.map((train) => {
-            const timeTableRow = train['Time Table Rows'].find(
-              (row) => row.Station === selectedStation
-            );
-            const destinationStation = getDestinationStation(train);
-            const destinationStationName = getStationName(destinationStation);
-            if (timeTableRow) {
-              const scheduledTime = formatTime(
-                timeTableRow['Scheduled Time'],
-                timeZone
-              );
-              const trackNumber = timeTableRow['Track Number'];
-              return (
-                <div className='train' key={train.TrainNumber}>
-                  <li>
-                    {train['Train Type']} {train['Train Number']} - Saapuu{' '}
-                    {scheduledTime} - Raide: {trackNumber} - Määränpää:{' '}
-                    {destinationStationName}
-                  </li>
-                </div>
-              );
-            } else {
-              return (
-                <div className='train' key={train.TrainNumber}>
-                  <li>
-                    {train['Train Type']} {train['Train Number']} -
-                    Saapumisaikaa ei saatavilla - Määränpää:{' '}
-                    {destinationStation}
-                  </li>
-                </div>
-              );
-            }
-          })}
-        </ul>
+      <h2 className='title-direction'>Saapuvat junat:</h2>
+      <div className='category-header'>
+        <div className='category'>Juna</div>
+        <div className='category'>Aika</div>
+        <div className='category'>Raide</div>
+        <div className='category'>Lähtöasema</div>
+        <div className='category'>Määränpää</div>
       </div>
-      <div>
-        <h2>Lähtevät junat:</h2>
-        <ul className='train-list'>
-          {filteredDepartingTrains.map((train) => {
-            const timeTableRow = train['Time Table Rows'].find(
-              (row) => row.Station === selectedStation
+      <ul className='train-list'>
+        {filteredArrivingTrains.map((train) => {
+          const timeTableRow = train['Time Table Rows'].find(
+            (row) => row.Station === selectedStation
+          );
+          const destinationStation = getDestinationStation(train);
+          const firstStation = getFirstStation(train);
+          const destinationStationName = getStationName(destinationStation);
+          if (timeTableRow) {
+            const scheduledTime = formatTime(
+              timeTableRow['Scheduled Time'],
+              timeZone
             );
-            const destinationStation = getDestinationStation(train);
-            const destinationStationName = getStationName(destinationStation);
-            if (timeTableRow) {
-              const scheduledTime = formatTime(
-                timeTableRow['Scheduled Time'],
-                timeZone
-              );
-              const trackNumber = timeTableRow['Track Number'];
-              return (
-                <div className='train' key={train.TrainNumber}>
-                  <li>
-                    {train['Train Type']} {train['Train Number']} - Lähtee{' '}
-                    {scheduledTime} - Raide:{trackNumber} - Määränpää:{' '}
-                    {destinationStationName}
-                  </li>
-                </div>
-              );
-            } else {
-              return (
-                <div className='train' key={train.TrainNumber}>
-                  <li>
-                    {train['Train Type']} {train['Train Number']} - Lähtöaikaa
-                    ei saatavilla - Määränpää: {destinationStation}
-                  </li>
-                </div>
-              );
-            }
-          })}
-        </ul>
-      </div>
+            const trackNumber = timeTableRow['Track Number'];
+            return (
+              <div className='train' key={train.TrainNumber}>
+                <li className='train-row'>
+                  <div className='category'>
+                    {train['Train Type']} {train['Train Number']}{' '}
+                  </div>
+                  <div className='category'>{scheduledTime} </div>
+                  <div className='category'> {trackNumber} </div>
+                  <div className='category'>
+                    {' '}
+                    {getStationName(firstStation)}{' '}
+                  </div>{' '}
+                  <div className='category'>{destinationStationName}</div>
+                </li>
+              </div>
+            );
+          } else {
+            return (
+              <div className='train' key={train.TrainNumber}>
+                <li>
+                  {train['Train Type']} {train['Train Number']} - Saapumisaikaa
+                  ei saatavilla - Määränpää: {destinationStation}
+                </li>
+              </div>
+            );
+          }
+        })}
+      </ul>
+      <h2 className='title-direction'>Lähtevät junat:</h2>
+      <ul className='train-list'>
+        {filteredDepartingTrains.map((train) => {
+          const timeTableRow = train['Time Table Rows'].find(
+            (row) => row.Station === selectedStation
+          );
+          const destinationStation = getDestinationStation(train);
+          const firstStation = getFirstStation(train);
+          const destinationStationName = getStationName(destinationStation);
+          if (timeTableRow) {
+            const scheduledTime = formatTime(
+              timeTableRow['Scheduled Time'],
+              timeZone
+            );
+            const trackNumber = timeTableRow['Track Number'];
+            return (
+              <div className='train' key={train.TrainNumber}>
+                <li className='train-row'>
+                  <div className='category'>
+                    {train['Train Type']} {train['Train Number']}{' '}
+                  </div>
+                  <div className='category'>{scheduledTime} </div>
+                  <div className='category'> {trackNumber} </div>
+                  <div className='category'>
+                    {' '}
+                    {getStationName(firstStation)}{' '}
+                  </div>{' '}
+                  <div className='category'>{destinationStationName}</div>
+                </li>
+              </div>
+            );
+          } else {
+            return (
+              <div className='train' key={train.TrainNumber}>
+                <li>
+                  {train['Train Type']} {train['Train Number']} - Lähtöaikaa ei
+                  saatavilla - Määränpää: {destinationStation}
+                </li>
+              </div>
+            );
+          }
+        })}
+      </ul>
     </div>
   );
 };

@@ -1,17 +1,38 @@
 import React from 'react';
+import Select from 'react-select';
+import './App.css';
 
 const StationDropdown = ({ stations, onSelectStation }) => {
+  const options = stations.map((station) => ({
+    value: station.stationShortCode,
+    label: station.stationName,
+  }));
+
+  const handleChange = (selectedOption) => {
+    onSelectStation(selectedOption.value);
+  };
+
   return (
-    <select onChange={(e) => onSelectStation(e.target.value)}>
-      <option value='' disabled>
-        Valitse Asema
-      </option>
-      {stations.map((station) => (
-        <option key={station.stationShortCode} value={station.stationShortCode}>
-          {station.stationName}
-        </option>
-      ))}
-    </select>
+    <div className='station-dropdown'>
+      <Select
+        options={options}
+        onChange={handleChange}
+        isSearchable
+        placeholder='Valitse Asema'
+        styles={{
+          control: (base) => ({
+            ...base,
+            width: 220,
+            margin: '0 auto',
+            color: 'black',
+          }),
+          singleValue: (base) => ({
+            ...base,
+            color: 'black',
+          }),
+        }}
+      />
+    </div>
   );
 };
 
