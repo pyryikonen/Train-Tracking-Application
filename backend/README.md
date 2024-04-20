@@ -5,8 +5,8 @@ This web application fetches live train information for specific stations and pr
 backend: https://junakuulutus.onrender.com/live-trains/TPE
 backend tts voice route example: 
 
-
 https://junakuulutus.onrender.com/single-announcement/2024-04-20T06:22:00.000Z/24/TPE
+
 https://junakuulutus.onrender.com/single-announcement/{date-object}/{train-number}/{station-shortcode}
 (Only works with future or ongoing trains) 
 
