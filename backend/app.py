@@ -19,9 +19,20 @@ def get_live_trains(station_shortcode):
     return jsonify({'arriving': formatted_arriving_trains, 'departing': formatted_departing_trains})
 
 
-@app.route('/single-announcement/<date_object>/<int:train_number>/<station_shortcode>', methods=['GET'])
-def get_single_announcement(date_object, train_number, station_shortcode):
-    print(f"Received request for single announcement with dateandtime: {date_object}, train_number: {train_number}, station_shortcode: {station_shortcode}")
+@app.route('/arrival-announcement/<date_object>/<int:train_number>/<station_shortcode>', methods=['GET'])
+def get_arrival_announcement(date_object, train_number, station_shortcode):
+    return get_announcement(date_object, train_number, station_shortcode, 'arrival')
+
+
+@app.route('/departure-announcement/<date_object>/<int:train_number>/<station_shortcode>', methods=['GET'])
+def get_departure_announcement(date_object, train_number, station_shortcode):
+    return get_announcement(date_object, train_number, station_shortcode, 'departure')
+
+
+def get_announcement(date_object, train_number, station_shortcode, announcement_type):
+    global announcement_path
+    print(
+        f"Received request for {announcement_type} announcement with dateandtime: {date_object}, train_number: {train_number}, station_shortcode: {station_shortcode}")
 
     # Validate dateandtime format
     try:
@@ -45,12 +56,13 @@ def get_single_announcement(date_object, train_number, station_shortcode):
     print("Successfully fetched train data.")
 
     # Construct broadcast using the matched timetable row
-    announcement_path = broadcast_utils.construct_broadcast(train_data)
+    if announcement_type == 'arrival':
+        announcement_path = broadcast_utils.construct_arrival_broadcast(train_data)
+    elif announcement_type == 'departure':
+        announcement_path = broadcast_utils.construct_departure_broadcast(train_data)
 
-    # Send the .wav file as a response
-    return send_file(announcement_path, mimetype="audio/wav", as_attachment=True, download_name=f"train_announcement.wav")
-
-
+    return send_file(announcement_path, mimetype="audio/wav", as_attachment=True,
+                     download_name=f"{announcement_type}_train_announcement.wav")
 
 def format_live_trains_response(station_shortcode, live_trains, direction):
     formatted_trains = []
