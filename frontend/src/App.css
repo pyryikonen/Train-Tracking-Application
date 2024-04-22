@@ -94,3 +94,17 @@
   flex-basis: 20%;
   text-align: center;
 }
+
+.categoryTitle {
+  padding: 10px 15px;
+  color: #d6d6d6;
+  font-family: 'Roboto', sans-serif;
+  min-width: 160px;
+  text-align: start;
+  font-weight: bold;
+  font-size: 1.5em;
+}
+
+.title-direction {
+  text-decoration: solid;
+}

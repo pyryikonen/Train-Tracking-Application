@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import passengerTrafficStations from './passenger_traffic_stations.json';
 import './App.css';
+import TrainAnnouncement from './TrainAnnouncement';
 
 const formatTime = (timeString) => {
   const date = new Date(timeString);
@@ -59,7 +60,7 @@ const TrainList = ({
           ]
         )
     )
-    .slice(0, 5);
+    .slice(0, 10);
 
   const filteredDepartingTrains = departingTrains
     .filter((train) => {
@@ -81,18 +82,20 @@ const TrainList = ({
           ]
         )
     )
-    .slice(0, 5);
+    .slice(0, 10);
 
   return (
     <div className='train-list-container'>
-      <h2 className='title-direction'>Saapuvat junat:</h2>
-      <div className='category-header'>
-        <div className='category'>Juna</div>
-        <div className='category'>Aika</div>
-        <div className='category'>Raide</div>
-        <div className='category'>Lähtöasema</div>
-        <div className='category'>Määränpää</div>
-      </div>
+      <h2 className='title-direction'>Saapuvat junat</h2>
+      <ul className='train-list'>
+        <li className='train-row'>
+          <div className='categoryTitle'>Juna</div>
+          <div className='categoryTitle'>Aika</div>
+          <div className='categoryTitle'>Raide</div>
+          <div className='categoryTitle'>Lähtöasema</div>
+          <div className='categoryTitle'>Määränpää</div>
+        </li>
+      </ul>
       <ul className='train-list'>
         {filteredArrivingTrains.map((train) => {
           const timeTableRow = train['Time Table Rows'].find(
@@ -108,7 +111,7 @@ const TrainList = ({
             );
             const trackNumber = timeTableRow['Track Number'];
             return (
-              <div className='train' key={train.TrainNumber}>
+              <div className='train' key={train['Train Number'] + 'arr'}>
                 <li className='train-row'>
                   <div className='category'>
                     {train['Train Type']} {train['Train Number']}{' '}
@@ -121,6 +124,11 @@ const TrainList = ({
                   </div>{' '}
                   <div className='category'>{destinationStationName}</div>
                 </li>
+                <TrainAnnouncement
+                  trainNumber={train['Train Number']}
+                  stationShortCode={selectedStation}
+                  arrivalDepartureTime={timeTableRow['Scheduled Time']}
+                />
               </div>
             );
           } else {
@@ -135,7 +143,16 @@ const TrainList = ({
           }
         })}
       </ul>
-      <h2 className='title-direction'>Lähtevät junat:</h2>
+      <h2 className='title-direction'>Lähtevät junat</h2>
+      <ul className='train-list'>
+        <li className='train-row'>
+          <div className='categoryTitle'>Juna</div>
+          <div className='categoryTitle'>Aika</div>
+          <div className='categoryTitle'>Raide</div>
+          <div className='categoryTitle'>Lähtöasema</div>
+          <div className='categoryTitle'>Määränpää</div>
+        </li>
+      </ul>
       <ul className='train-list'>
         {filteredDepartingTrains.map((train) => {
           const timeTableRow = train['Time Table Rows'].find(
@@ -151,7 +168,7 @@ const TrainList = ({
             );
             const trackNumber = timeTableRow['Track Number'];
             return (
-              <div className='train' key={train.TrainNumber}>
+              <div className='train' key={train['Train Number'] + 'dep'}>
                 <li className='train-row'>
                   <div className='category'>
                     {train['Train Type']} {train['Train Number']}{' '}
