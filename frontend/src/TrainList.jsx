@@ -33,6 +33,11 @@ const TrainList = ({
     return timeTableRows[0].Station;
   };
 
+  const getLastStation = (train) => {
+    const timeTableRows = train['Time Table Rows'];
+    return timeTableRows[timeTableRows.length - 1].Station;
+  };
+
   const getStationName = (shortCode) => {
     const station = passengerTrafficStations.find(
       (station) => station.stationShortCode === shortCode
@@ -67,7 +72,11 @@ const TrainList = ({
       const row = train['Time Table Rows'].find(
         (row) => row.Station === selectedStation
       );
-      return row && new Date(row['Scheduled Time']) > currentTime;
+      if (getLastStation(train) !== selectedStation) {
+        return row && new Date(row['Scheduled Time']) > currentTime;
+      } else {
+        return null;
+      }
     })
     .sort(
       (a, b) =>
@@ -104,6 +113,7 @@ const TrainList = ({
           const destinationStation = getDestinationStation(train);
           const firstStation = getFirstStation(train);
           const destinationStationName = getStationName(destinationStation);
+          const lastStation = getLastStation(train);
           if (timeTableRow) {
             const scheduledTime = formatTime(
               timeTableRow['Scheduled Time'],
@@ -125,6 +135,7 @@ const TrainList = ({
                   <div className='category'>{destinationStationName}</div>
                 </li>
                 <TrainAnnouncement
+                  arrival={true}
                   trainNumber={train['Train Number']}
                   stationShortCode={selectedStation}
                   arrivalDepartureTime={timeTableRow['Scheduled Time']}
