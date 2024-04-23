@@ -1,7 +1,7 @@
-import { set } from 'date-fns';
 import { useEffect, useState } from 'react';
 
 const TrainAnnouncement = ({
+  arrival,
   trainNumber,
   stationShortCode,
   arrivalDepartureTime,
@@ -10,7 +10,11 @@ const TrainAnnouncement = ({
   const [audioQueue, setAudioQueue] = useState([]);
   const [usedAudioUrls, setUsedAudioUrls] = useState([]); // Keep track of played audio URLs so they are not played again
 
-  const playAudio = async (audioUrl) => {
+  const playAudio = () => {
+    if (audioQueue.length === 0) {
+      return;
+    }
+    const audioUrl = audioQueue[0];
     if (usedAudioUrls.includes(audioUrl)) {
       return;
     }
@@ -20,13 +24,13 @@ const TrainAnnouncement = ({
       const audio = new Audio(audioUrl);
       audio.onended = () => {
         setIsPlaying(false);
+        setUsedAudioUrls((prevUrls) => [...prevUrls, audioUrl]);
+        setAudioQueue((prevQueue) => prevQueue.slice(1));
       };
       audio.play();
     } catch (error) {
       console.error('Error playing audio:', error);
     }
-    setUsedAudioUrls((prevUrls) => [...prevUrls, audioUrl]);
-    setAudioQueue((prevQueue) => prevQueue.slice(1));
   };
 
   const checkTrain = () => {
@@ -35,8 +39,13 @@ const TrainAnnouncement = ({
     const timeNow = new Date();
     timeNow.setHours(timeNow.getHours() + 3);
     const timeDifference = new Date(arrivalDepartureTime) - timeNow;
-    if (timeDifference <= 300000) {
-      const audioUrl = `https://junakuulutus.onrender.com/single-announcement/${arrivalDepartureTime}/${trainNumber}/${stationShortCode}`;
+    if (timeDifference <= 300000 && timeDifference > 240000) {
+      var audioUrl = '';
+      if (arrival) {
+        audioUrl = `https://junakuulutus.onrender.com/arrival-announcement/${arrivalDepartureTime}/${trainNumber}/${stationShortCode}`;
+      } else {
+        audioUrl = `https://junakuulutus.onrender.com/departure-announcement/${arrivalDepartureTime}/${trainNumber}/${stationShortCode}`;
+      }
       if (!audioQueue.includes(audioUrl) && !usedAudioUrls.includes(audioUrl)) {
         setAudioQueue((prevQueue) => [...prevQueue, audioUrl]);
       }
@@ -52,8 +61,8 @@ const TrainAnnouncement = ({
   }, []);
 
   useEffect(() => {
-    if (audioQueue.length > 0 && !isPlaying) {
-      playAudio(audioQueue[0]);
+    if (!isPlaying) {
+      playAudio();
     }
   }, [audioQueue, isPlaying]);
 
