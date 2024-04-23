@@ -15,6 +15,7 @@ def get_station_name(station_short_code):
 
 
 def construct_arrival_broadcast(traindata_list):
+    global arriving_audio_file_path
     print("Entering construct_arrival_broadcast")
     for traindata in traindata_list:
         print("Train Data:", traindata)
@@ -53,7 +54,7 @@ def construct_arrival_broadcast(traindata_list):
         arriving_audio_file_path = f"static/departure_train_announcement_{train_number}.wav"
         arriving_tts.save(arriving_audio_file_path)
 
-    return departing_audio_file_path
+    return arriving_audio_file_path
 
 
 def construct_departure_broadcast(traindata_list):
