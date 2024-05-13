@@ -50,6 +50,7 @@ def construct_arrival_broadcast(traindata_list):
         # Extract stations and scheduled times
         first_station = time_table_rows[0]['Station']
         target_station = time_table_rows[1]['Station']
+        last_station = time_table_rows[2]['Station']
 
         first_station_name = get_station_name(first_station)
         target_station_name = get_station_name(target_station)
@@ -62,7 +63,7 @@ def construct_arrival_broadcast(traindata_list):
         train_number_as_text = str(train_number)
 
         # Check if the target station is the same as the arrival station
-        if first_station == target_station:
+        if last_station == target_station:
             # Construct a different announcement for final stations
             arriving_text = f'(Juna {train_type}-{train_number_as_text}) saapuu asemalle {first_station_name}, raiteelle {track_number}. Tämä on junan {train_number_as_text} päätepysäkki.'
         else:
@@ -73,7 +74,6 @@ def construct_arrival_broadcast(traindata_list):
         arriving_tts.save(arriving_audio_file_path)
 
     return arriving_audio_file_path
-
 
 
 def construct_departure_broadcast(traindata_list):
@@ -99,6 +99,7 @@ def construct_departure_broadcast(traindata_list):
         time_table_rows = traindata.get('Time Table Rows', [])
 
         # Extract stations and scheduled times
+        first_station = time_table_rows[0]['Station']
         target_station = time_table_rows[1]['Station']
         last_station = time_table_rows[2]['Station']
 
@@ -113,7 +114,7 @@ def construct_departure_broadcast(traindata_list):
         train_number_as_text = str(train_number)
 
         # Departing train announcement
-        departing_text = f'(Juna {train_type}-{train_number_as_text}) asemalta {target_station_name} raiteelta {track_number} lähtee asemalle {last_station_name} kello {time_24hr_target}.'
+        departing_text = f'(Juna {train_type}-{train_number_as_text}) raiteelta {track_number} kohti {target_station_name} lähtee kello {time_24hr_target}'
 
         departing_tts = gTTS(departing_text, lang='fi')
         departing_audio_file_path = f"static/departure_train_announcement_{train_number}.wav"
