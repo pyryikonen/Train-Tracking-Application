@@ -27,7 +27,7 @@ const TrainAnnouncement = ({
           setQueue((prevQueue) => [...prevQueue, audioUrl]);
         }
       }
-    }, 3000);
+    }, 30000);
     console.log('TrainAnnouncement useEffect end');
     return () => clearInterval(interval);
   }, []);
