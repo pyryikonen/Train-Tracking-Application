@@ -1,12 +1,23 @@
-import pytz
 import requests
 import json
 import time
-from datetime import datetime
 
 headers = {'Digitraffic-User': 'TamkOpiskelijat/junakuulutukset 1.0'}
+
+
 # Function to fetch live train information for a given station
 def fetch_live_trains(station_shortcode, arriving_trains=200, departing_trains=200):
+    """
+       Fetches live train information for a given station.
+
+       Parameters:
+       - station_shortcode (str): The shortcode of the station.
+       - arriving_trains (int): Number of arriving trains to fetch (default is 200).
+       - departing_trains (int): Number of departing trains to fetch (default is 200).
+
+       Returns:
+       - dict: A dictionary containing live train data for arriving and departing trains.
+       """
     url_arriving = f"https://rata.digitraffic.fi/api/v1/live-trains/station/{station_shortcode}?arriving_trains={arriving_trains}&include_nonstopping=false&train_categories=Commuter,Long-distance"
     url_departing = f"https://rata.digitraffic.fi/api/v1/live-trains/station/{station_shortcode}?departing_trains={departing_trains}&include_nonstopping=false&train_categories=Commuter,Long-distance"
 
@@ -28,7 +39,20 @@ def fetch_live_trains(station_shortcode, arriving_trains=200, departing_trains=2
 
 
 def get_train_data(departure_date, train_number, departure_time, station_shortcode):
+    """
+       Retrieves train data based on departure date, train number, and departure time.
+
+       Parameters:
+       - departure_date (str): The departure date in 'YYYY-MM-DD' format.
+       - train_number (int): The train number.
+       - departure_time (str): The departure time in 'HH:MM:SS' format.
+       - station_shortcode (str): The shortcode of the station.
+
+       Returns:
+       - list: A list of dictionaries containing train data.
+       """
     # Convert departure_time to the expected UTC format
+    # YYYY-MM-DDTHH:MM:SS.sssZ
     departure_time_utc = f"{departure_date}T{departure_time}.000Z"
 
     url = f"https://rata.digitraffic.fi/api/v1/trains/{departure_date}/{train_number}?include_deleted=false&version=0"

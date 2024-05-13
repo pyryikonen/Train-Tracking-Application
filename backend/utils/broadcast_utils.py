@@ -2,12 +2,24 @@ from gtts import gTTS
 from datetime import datetime
 import json
 
+arriving_audio_file_path = None
+departing_audio_file_path = None
+
 # Load station data from passenger_traffic_stations.json
 with open('passenger_traffic_stations.json', 'r', encoding='utf-8') as file:
     station_data = json.load(file)
 
 
 def get_station_name(station_short_code):
+    """
+     Retrieves the name of a station based on its shortcode.
+
+     Parameters:
+     - station_short_code (str): The shortcode of the station.
+
+     Returns:
+     - str: The name of the station if found, otherwise 'Unknown'.
+     """
     for station in station_data:
         if station['stationShortCode'] == station_short_code:
             return station['stationName']
@@ -15,10 +27,18 @@ def get_station_name(station_short_code):
 
 
 def construct_arrival_broadcast(traindata_list):
+    """
+      Constructs an audio file for train arrival announcement.
+
+      Parameters:
+      - traindata_list (list): A list of dictionaries containing train data.
+
+      Returns:
+      - str: The file path of the constructed audio file.
+      """
     global arriving_audio_file_path
-    print("Entering construct_arrival_broadcast")
+
     for traindata in traindata_list:
-        print("Train Data:", traindata)
 
         train_type = traindata.get('Train Type', 'Unknown')
         print("Train Type:", train_type)
@@ -58,17 +78,22 @@ def construct_arrival_broadcast(traindata_list):
 
 
 def construct_departure_broadcast(traindata_list):
+    """
+       Constructs an audio file for train departure announcement.
+
+       Parameters:
+       - traindata_list (list): A list of dictionaries containing train data.
+
+       Returns:
+       - str: The file path of the constructed audio file.
+       """
     global departing_audio_file_path
-    print("Entering broadcast_utils")
 
     for traindata in traindata_list:
-        print("Train Data:", traindata)
 
         train_type = traindata.get('Train Type', 'Unknown')
-        print("Train Type:", train_type)
 
         if train_type is None:
-            print("Train Type key not found in traindata")
             continue
 
         train_number = traindata.get('Train Number')
@@ -89,7 +114,6 @@ def construct_departure_broadcast(traindata_list):
 
         # Departing train announcement
         departing_text = f'({train_type}-{train_number_as_text}) asemalta {target_station_name} lähtee asemalle {last_station_name} kello {time_24hr_target}.'
-        print(departing_text)
 
         departing_tts = gTTS(departing_text, lang='fi', slow=True)
         departing_audio_file_path = f"static/departure_train_announcement_{train_number}.wav"
