@@ -4,14 +4,15 @@ import json
 import time
 from datetime import datetime
 
+headers = {'Digitraffic-User': 'TamkOpiskelijat/junakuulutukset 1.0'}
 # Function to fetch live train information for a given station
 def fetch_live_trains(station_shortcode, arriving_trains=200, departing_trains=200):
     url_arriving = f"https://rata.digitraffic.fi/api/v1/live-trains/station/{station_shortcode}?arriving_trains={arriving_trains}&include_nonstopping=false&train_categories=Commuter,Long-distance"
     url_departing = f"https://rata.digitraffic.fi/api/v1/live-trains/station/{station_shortcode}?departing_trains={departing_trains}&include_nonstopping=false&train_categories=Commuter,Long-distance"
 
     try:
-        response_arriving = requests.get(url_arriving)
-        response_departing = requests.get(url_departing)
+        response_arriving = requests.get(url_arriving, headers=headers)
+        response_departing = requests.get(url_departing, headers=headers)
 
         response_arriving.raise_for_status()
         response_departing.raise_for_status()
@@ -25,6 +26,7 @@ def fetch_live_trains(station_shortcode, arriving_trains=200, departing_trains=2
         print(f"Error fetching live trains for station {station_shortcode}: {e}")
         return {'arriving': [], 'departing': []}
 
+
 def get_train_data(departure_date, train_number, departure_time, station_shortcode):
     # Convert departure_time to the expected UTC format
     departure_time_utc = f"{departure_date}T{departure_time}.000Z"
@@ -32,7 +34,7 @@ def get_train_data(departure_date, train_number, departure_time, station_shortco
     url = f"https://rata.digitraffic.fi/api/v1/trains/{departure_date}/{train_number}?include_deleted=false&version=0"
 
     try:
-        response = requests.get(url)
+        response = requests.get(url, headers=headers)
         response.raise_for_status()
         train_data_list = response.json()
 
