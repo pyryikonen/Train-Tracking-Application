@@ -67,8 +67,6 @@ def get_train_data(departure_date, train_number, departure_time, station_shortco
             print("No train data found or train_data_list is not a list")
             return None
 
-        print("In live trains utils")
-
         formatted_trains = []
 
         # Search through all train data for a matching timetable row
