@@ -81,7 +81,6 @@ def get_announcement(date_object, train_number, station_shortcode, announcement_
     try:
         dt_obj = datetime.strptime(date_object, '%Y-%m-%dT%H:%M:%S.%fZ')
 
-        # Extract date and time from datetime object
         announcement_date = dt_obj.strftime('%Y-%m-%d')
         announcement_time = dt_obj.strftime('%H:%M:%S')
     except ValueError:
@@ -150,7 +149,6 @@ def format_live_trains_response(station_shortcode, live_trains, direction):
                 }
             ]
 
-            # Sort the timetable rows by scheduled time
             sorted_time_table_rows = sorted(time_table_rows, key=lambda x: x['Scheduled Time'])
 
             formatted_train = {
