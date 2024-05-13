@@ -65,7 +65,7 @@ def construct_arrival_broadcast(traindata_list):
         # Check if the target station is the same as the arrival station
         if last_station == target_station:
             # Construct a different announcement for final stations
-            arriving_text = f'(Juna {train_type}-{train_number_as_text}) saapuu asemalle {first_station_name}, raiteelle {track_number}. Tämä on junan {train_number_as_text} päätepysäkki.'
+            arriving_text = f'(Juna {train_type}-{train_number_as_text}) saapuu asemalle {target_station_name}, raiteelle {track_number}. Tämä on junan {train_number_as_text} päätepysäkki.'
         else:
             arriving_text = f'(Juna {train_type}-{train_number_as_text}) asemalta {first_station_name} pysähtyy asemalle {target_station_name}, raiteelle {track_number} kello {time_24hr_target}.'
 
@@ -114,7 +114,7 @@ def construct_departure_broadcast(traindata_list):
         train_number_as_text = str(train_number)
 
         # Departing train announcement
-        departing_text = f'(Juna {train_type}-{train_number_as_text}) raiteelta {track_number} kohti {target_station_name} lähtee kello {time_24hr_target}'
+        departing_text = f'(Juna {train_type}-{train_number_as_text}) raiteelta {track_number} kohti {last_station_name} lähtee kello {time_24hr_target}'
 
         departing_tts = gTTS(departing_text, lang='fi')
         departing_audio_file_path = f"static/departure_train_announcement_{train_number}.wav"
