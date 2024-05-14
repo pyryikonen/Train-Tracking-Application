@@ -5,7 +5,6 @@ import json
 arriving_audio_file_path = None
 departing_audio_file_path = None
 
-# Load station data from passenger_traffic_stations.json
 with open('passenger_traffic_stations.json', 'r', encoding='utf-8') as file:
     station_data = json.load(file)
 
@@ -56,7 +55,7 @@ def construct_arrival_broadcast(traindata_list):
         target_station_name = get_station_name(target_station)
 
         scheduled_time_target = time_table_rows[1]['Scheduled Time']
-        track_number = time_table_rows[1].get('Track Number', 'Unknown')  # Extract track number
+        track_number = time_table_rows[1].get('Track Number', 'Unknown')
 
         time_24hr_target = f'{datetime.strptime(scheduled_time_target, "%Y-%m-%dT%H:%M:%S.%fZ").hour:02}:{datetime.strptime(scheduled_time_target, "%Y-%m-%dT%H:%M:%S.%fZ").minute:02}'
 
@@ -64,7 +63,6 @@ def construct_arrival_broadcast(traindata_list):
 
         # Check if the target station is the same as the arrival station
         if last_station == target_station:
-            # Construct a different announcement for final stations
             arriving_text = f'(Juna {train_type}-{train_number_as_text}) saapuu asemalle {target_station_name}, raiteelle {track_number}, kello {time_24hr_target}. Tämä on junan {train_number_as_text} päätepysäkki.'
         else:
             arriving_text = f'(Juna {train_type}-{train_number_as_text}) asemalta {first_station_name} pysähtyy asemalle {target_station_name}, raiteelle {track_number} kello {time_24hr_target}.'
@@ -107,13 +105,12 @@ def construct_departure_broadcast(traindata_list):
         last_station_name = get_station_name(last_station)
 
         scheduled_time_target = time_table_rows[1]['Scheduled Time']
-        track_number = time_table_rows[1].get('Track Number', 'Unknown')  # Extract track number
+        track_number = time_table_rows[1].get('Track Number', 'Unknown')
 
         time_24hr_target = f'{datetime.strptime(scheduled_time_target, "%Y-%m-%dT%H:%M:%S.%fZ").hour:02}:{datetime.strptime(scheduled_time_target, "%Y-%m-%dT%H:%M:%S.%fZ").minute:02}'
 
         train_number_as_text = str(train_number)
 
-        # Departing train announcement
         departing_text = f'(Juna {train_type}-{train_number_as_text}) raiteelta {track_number} kohti {last_station_name} lähtee kello {time_24hr_target}'
 
         departing_tts = gTTS(departing_text, lang='fi')

@@ -5,7 +5,6 @@ import time
 headers = {'Digitraffic-User': 'TamkOpiskelijat/junakuulutukset 1.0'}
 
 
-# Function to fetch live train information for a given station
 def fetch_live_trains(station_shortcode, arriving_trains=200, departing_trains=200):
     """
        Fetches live train information for a given station.
@@ -62,7 +61,6 @@ def get_train_data(departure_date, train_number, departure_time, station_shortco
         response.raise_for_status()
         train_data_list = response.json()
 
-        # Check if train data is found and not empty
         if not train_data_list or not isinstance(train_data_list, list):
             print("No train data found or train_data_list is not a list")
             return None

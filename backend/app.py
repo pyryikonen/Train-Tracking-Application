@@ -77,17 +77,21 @@ def get_announcement(date_object, train_number, station_shortcode, announcement_
     """
     global announcement_path
 
-    # Validate dateandtime format
+    # Validate date_object format
     try:
         dt_obj = datetime.strptime(date_object, '%Y-%m-%dT%H:%M:%S.%fZ')
 
-        # Extract date and time from datetime object
-        departure_date = dt_obj.strftime('%Y-%m-%d')
-        departure_time = dt_obj.strftime('%H:%M:%S')
+        announcement_date = dt_obj.strftime('%Y-%m-%d')
+        announcement_time = dt_obj.strftime('%H:%M:%S')
     except ValueError:
         return jsonify({'error': 'Invalid date_object format. Use YYYY-MM-DDTHH:MM:SS.sssZ.'}), 400
 
-    train_data = get_train_data(departure_date, train_number, departure_time, station_shortcode)
+    if announcement_type == 'arrival':
+        train_data = get_train_data(announcement_date, train_number, announcement_time, station_shortcode)
+    elif announcement_type == 'departure':
+        train_data = get_train_data(announcement_date, train_number, announcement_time, station_shortcode)
+    else:
+        return jsonify({'error': 'Invalid announcement_type. Use either "arrival" or "departure".'}), 400
 
     if not train_data:
         return jsonify({'error': 'Train not found or timetable row not matching the specified departure_time'}), 404
@@ -145,7 +149,6 @@ def format_live_trains_response(station_shortcode, live_trains, direction):
                 }
             ]
 
-            # Sort the timetable rows by scheduled time
             sorted_time_table_rows = sorted(time_table_rows, key=lambda x: x['Scheduled Time'])
 
             formatted_train = {
