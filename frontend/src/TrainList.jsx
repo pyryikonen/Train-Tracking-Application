@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
-import passengerTrafficStations from './passenger_traffic_stations.json';
+import React from 'react';
+import passengerTrafficStations from './passenger_traffic_stations.json'; // Importing data for passenger traffic stations
 import './App.css';
 import TrainAnnouncement from './TrainAnnouncement';
-import { AnnouncementProvider } from './AnnouncementContext'; // Replace with the actual path to AnnouncementContext.js
-import AnnouncementPlayer from './AnnouncementPlayer'; // Replace with the actual path to AnnouncementPlayer.js
+import { AnnouncementProvider } from './AnnouncementContext';
+import AnnouncementPlayer from './AnnouncementPlayer';
 
+// Function to format time string to Finnish time format
 const formatTime = (timeString) => {
   const date = new Date(timeString);
   date.setHours(date.getHours() - 3);
@@ -16,6 +17,7 @@ const formatTime = (timeString) => {
   return date.toLocaleTimeString('fi-FI', options);
 };
 
+// TrainList component responsible for rendering the list of arriving and departing trains
 const TrainList = ({
   arrivingTrains,
   departingTrains,
@@ -23,8 +25,9 @@ const TrainList = ({
   timeZone,
 }) => {
   const currentTime = new Date();
-  currentTime.setHours(currentTime.getHours() + 3);
+  currentTime.setHours(currentTime.getHours() + 3); // Adjusting to local time (GMT+3)
 
+  // Functions to get destination, first station, and last station of a train
   const getDestinationStation = (train) => {
     const timeTableRows = train['Time Table Rows'];
     return timeTableRows[timeTableRows.length - 1].Station;
@@ -40,6 +43,7 @@ const TrainList = ({
     return timeTableRows[timeTableRows.length - 1].Station;
   };
 
+  // Function to get full station name from its short code
   const getStationName = (shortCode) => {
     const station = passengerTrafficStations.find(
       (station) => station.stationShortCode === shortCode
@@ -47,6 +51,7 @@ const TrainList = ({
     return station ? station.stationName : '';
   };
 
+  // Filtering arriving trains based on selected station and current time
   const filteredArrivingTrains = arrivingTrains
     .filter((train) => {
       const row = train['Time Table Rows'].find(
@@ -69,6 +74,7 @@ const TrainList = ({
     )
     .slice(0, 10);
 
+  // Filtering departing trains based on selected station and current time
   const filteredDepartingTrains = departingTrains
     .filter((train) => {
       const row = train['Time Table Rows'].find(
