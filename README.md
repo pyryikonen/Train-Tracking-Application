@@ -24,4 +24,23 @@ frontend: https://trains-7w3b.onrender.com/
 
 ## Usage
 
-coming soon tm
+1. **Install dependencies:**
+
+   - Ensure that you have the necessary Python dependencies installed. You can use pip to install them:
+
+     ```
+     pip install ...
+     ```
+2. **Start the server:**
+   
+   - Once dependencies are installed and the application is configured, you can start the server. For example, if you're using Flask:
+
+     ```
+     python app.py
+     ```
+
+     If you're using a production-ready server like Gunicorn, you might use a command like this:
+
+     ```
+     gunicorn -w 4 app:app
+     ```
