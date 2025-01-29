@@ -1,6 +1,7 @@
 # Live Trains Web Application
 
 This web application fetches live train information for specific stations and presents it in a user-friendly format. It provides real-time data on arriving and departing trains, including scheduled times, train types, and destinations.
+**At this time the application is deployed separately in different servers (backend & frontend) on render. So to use it you need to wake up both of these**
 
 backend: https://junakuulutus.onrender.com/live-trains/TPE
 
